@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <div id="header"> 
+        <img src="https://cdn-icons-png.flaticon.com/512/169/169301.png" id="icon">
+        <span id="title">The TUB</span>
+        <input type="text" id="search-input" placeholder="Search..."></input>
+    </div>
+    <div id="links-section">
+        <div id="links-full-container">
+            <div class="links-row-container">
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+            </div>
+            <div class="links-row-container">
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+            </div>
+            <div class="links-row-container">
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+            </div>
+            <div class="links-row-container">
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+                <div class="link-box"><div class="link-box-text-container"></div></div>
+            </div>
+        </div>
+        <img src="https://assets.stickpng.com/images/58f8bcf70ed2bdaf7c128307.png" id="links-arrow">
+    </div>
+    <div id="info-section">
+        <div id="info-full-container">
+            <div class="info-box" onclick="expand(this)"></div>
+            <div class="info-box" onclick="expand(this)"></div>
+            <div class="info-box" onclick="expand(this)"></div>
+            <div class="info-box" onclick="expand(this)"></div>
+            <div class="info-box" onclick="expand(this)"></div>
+            <div class="info-box" onclick="expand(this)"></div>
+        </div>
+    </div>
+    <div id="info-pullout"></div>
+</body>
+</html>
