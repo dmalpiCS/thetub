@@ -1,32 +1,28 @@
-var tabs = ["Home", ""]
-var home = tabs[0];
+var categories = { all: "All", school: "School", resources: "Resources" };
+var tabs = [categories.all, categories.school];
 
-linkWeights = [0.5, 0.5]
-infoWeights = [0.5, 0.5]
+var linkWeights = [];
+var infoWeights = [];
 
 var resources = {
     links: [
         {
-            link: "",
+            link: "https://www.google.com",
             image: "",
-            weightIndex: 0
+            weightIndex: 0,
+            categories: [categories.all, categories.resources],
         },
-        {
-            link: "",
-            image: "",
-            weightIndex: 1
-        }
     ],
     info: [
         {
             type: "link",
+            link: "",
             weightIndex: 0,
-            link: ""
         },
         {
             type: "page",
+            html: "",
             weightIndex: 1,
-            html: ""
         }
     ]
 }
@@ -55,8 +51,8 @@ function parseCookie(cookies) {
     for (let i = 0; i < cookies.length; i++) {
         let cookie = cookies[i];
         for (let j = 0; j < cookie.length; j++) {
-            if (cookie[j] == ":") {
-                let [cookieName, cookieVal] = [cookie.substring(0, j), cookie.substring(j + 2)];
+            if (cookie[j] == "=") {
+                let [cookieName, cookieVal] = [cookie.substring(0, j), cookie.substring(j + 1)];
                 parsed[cookieName] = cookieVal;
                 break;
             }
@@ -65,16 +61,89 @@ function parseCookie(cookies) {
     return parsed;
 }
 
-function setup() {
+function loadWeights() {
     let cookie = document.cookie;
     if (cookie == "") {
+        linkWeights = [];
+        infoWeights = [];
     } else {
         let parsedValues = parseCookie(cookie);
-        console.log(parsedValues);
+        linkWeights = parsedValues.linkWeights.split(",");
+        infoWeights = parsedValues.infoWeights.split(",");
+        for (i in linkWeights) { linkWeights[i] = Number(linkWeights[i]); }
+        for (i in infoWeights) { infoWeights[i] = Number(infoWeights[i]); }
     }
-    document.cookie = `linkWeights: ${linkWeights}; path=/`;
-    document.cookie = `infoWeights: ${infoWeights}; path=/`;
+}
 
+function saveWeights() {
+    document.cookie = `linkWeights=${linkWeights}; path=/`;
+    document.cookie = `infoWeights=${infoWeights}; path=/`;
+}
+
+var categorySections = {}
+for (let categoryID in categories) {
+    categorySections[categories[categoryID]] = newSection = document.createElement("div");
+    newSection.classList.add("links-full-container");
+    newSection.style.visibility = "hidden";
+
+    document.getElementById("links-section").appendChild(newSection);
+}
+categorySections[categories.all].style.visibility = "visible";
+
+function addLink(linkObj, category) {
+    lastRowContainer = categorySections[category].lastChild;
+    lastRowIndex = categorySections[category].childNodes.length - 1;
+    if (lastRowIndex == -1 || 
+        (lastRowIndex == 0 && lastRowContainer.childNodes.length == 3) ||
+        (lastRowIndex > 0  && lastRowContainer.childNodes.length == 4)) {
+        lastRowContainer = document.createElement("div")
+        lastRowContainer.classList.add("links-row-container")
+        
+        categorySections[category].appendChild(lastRowContainer)
+    }
+    newLinkBox = document.createElement("a");
+    newLinkBox.href = linkObj.link;
+    newLinkBox.classList.add("link-box")
+
+    lastRowContainer.appendChild(newLinkBox);
+}
+
+function addLinks() {
+    let highestWeightIndex = 0;
+    for (let i in resources.links) {
+        while (resources.links[i].weightIndex >= linkWeights.length) {
+            linkWeights.push(0.5);
+        }
+        highestWeightIndex = Math.max(highestWeightIndex, resources.links[i].weightIndex);
+    }
+    while (linkWeights.length > highestWeightIndex + 1) { linkWeights.pop(); }
+    resources.links.sort((a, b) => linkWeights[b.weightIndex] - linkWeights[a.weightIndex]);
+
+    resources.links.forEach((linkObj) => {
+        linkObj.categories.forEach((category) => {
+            addLink(linkObj, category);
+        })
+    })
+
+    for (let category in categorySections) {
+        lastRow = categorySections[category].lastChild;
+        lastRowIndex = categorySections[category].childNodes.length - 1;
+        desiredColumns = lastRowIndex == -1 ? 0 : (lastRowIndex == 0 ? 3 : 4);
+
+        while (lastRow && desiredColumns - lastRow.childNodes.length > 0) {
+            newLinkBox = document.createElement("a");
+            newLinkBox.classList.add("link-box");
+            newLinkBox.style.visibility = "hidden";
+
+            lastRow.appendChild(newLinkBox);
+        }
+    }
+}
+
+function setup() {
+    loadWeights();
+    addLinks();
+    saveWeights();
 }
 
 setup();
