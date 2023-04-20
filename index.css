@@ -5,6 +5,8 @@
     --link-box-gaps: 1.5vw;
     --link-box-border-radii: 2vw;
     --links-section-ratio: 0.7;
+    --category-bar-height: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 html, body {
@@ -70,15 +72,41 @@ html, body {
 }
 
 #links-section {
-    --links-header-height: 7%;
-    top: calc(var(--header-height) + var(--links-header-height));
-    height: calc(100% - var(--header-height) - var(--links-header-height));
+    top: var(--header-height);
+    height: calc(100% - var(--header-height));
 
     width: calc(100% * var(--links-section-ratio));
     background-color: rgb(234, 234, 234);
 }
 
+#category-bar {
+    width: 100%;
+    height: var(--category-bar-height);
+    background-color: rgb(211, 211, 211);
+    transition: 0.1s ease-in-out;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    /* white-space: nowrap; */
+}
+
+.category-selector {
+    height: 100%;
+    width: 150px;
+    float: left;
+    font-size: calc(var(--category-bar-height) * 0.65);
+    line-height: var(--category-bar-height);
+    text-align: center;
+    user-select: none;
+    
+}
+
+.category-selector:hover {
+    background-color: rgb(187, 187, 187);
+    cursor: pointer;
+}
+
 .links-full-container {
+    top: var(--category-bar-height);
     margin: var(--link-box-gaps);
     width: calc(100% - var(--link-box-gaps) * 2);
     height: fit-content;
@@ -99,7 +127,10 @@ html, body {
 
 .link-box {
     aspect-ratio: 2/1;
-    background-color: rgb(255, 118, 118);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-color: white;
     flex-grow: 1;
     border-radius: var(--link-box-border-radii);
 
