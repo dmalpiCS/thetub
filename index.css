@@ -85,14 +85,18 @@ html, body {
     background-color: rgb(211, 211, 211);
     transition: 0.1s ease-in-out;
     overflow-x: scroll;
+    overflow-y: hidden;
     scrollbar-width: none;
-    /* white-space: nowrap; */
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .category-selector {
+    display: inline-block;
     height: 100%;
-    width: 150px;
-    float: left;
+    width: calc(element.width() + 10px);
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: calc(var(--category-bar-height) * 0.65);
     line-height: var(--category-bar-height);
     text-align: center;
@@ -101,8 +105,17 @@ html, body {
 }
 
 .category-selector:hover {
-    background-color: rgb(187, 187, 187);
+    background-color: rgb(197, 197, 197);
     cursor: pointer;
+}
+
+.category-selector:active {
+    background-color: rgb(161, 161, 161);
+    cursor: pointer;
+}
+
+.category-selector.selected {
+    background-color: rgb(187, 187, 187);
 }
 
 .links-full-container {

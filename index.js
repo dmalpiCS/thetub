@@ -7,15 +7,29 @@ var categories = {
     tideMathScience: "Math/Science",
     tideSpanish: "Spanish",
     foothill: "Foothill", 
-    hotlines: "Mental Health Hotlines", 
-    resources: "Academic Support Resources", 
-    resourcesGoogle: "Google Applications",
+    hotlines: "Mental Health", 
+    resources: "Academic Resources", 
+    resourcesGoogle: "Google",
     schedules: "Schedules", 
     college: "College Applications", 
 };
-var tabs = categories;
-
-var selectedCategory = categories.all
+var tabs = [
+    [categories.all, []],
+    [categories.tide, [
+        categories.tideInClass, 
+        categories.tidePresentation, 
+        categories.tideGrammar, 
+        categories.tideMathScience, 
+        categories.tideSpanish]],
+    [categories.foothill, []],
+    // [categories.hotlines, []],
+    [categories.resources, [
+        categories.resourcesGoogle]],
+    [categories.schedules, []],
+    [categories.college, []],
+];
+var selectedCategory;
+var categoryButtons = {};
 
 var linkWeights = [];
 var infoWeights = [];
@@ -219,8 +233,6 @@ for (let categoryID in categories) {
     newSection.classList.add("links-full-container");
 }
 
-document.getElementById("links-section").appendChild(categorySections[selectedCategory]);
-
 function addLink(linkObj, category) {
     lastRowContainer = categorySections[category].lastChild;
     lastRowIndex = categorySections[category].childNodes.length - 1;
@@ -254,8 +266,12 @@ function addLink(linkObj, category) {
 }
 function changeCategory(newCategory) {
     if (newCategory == selectedCategory) { return; }
-    document.getElementById("links-section").removeChild(categorySections[selectedCategory]);
+    if (selectedCategory) {
+        document.getElementById("links-section").removeChild(categorySections[selectedCategory]);
+        categoryButtons[selectedCategory].classList.remove("selected");
+    }
     document.getElementById("links-section").appendChild(categorySections[newCategory]);
+    categoryButtons[newCategory].classList.add("selected");
     selectedCategory = newCategory;
 }
 
@@ -294,16 +310,18 @@ function addLinks() {
 
 function addCategorySelectors() {
     categoryBar = document.getElementById("category-bar");
-    for (let categoryID in tabs) {
-        categoryName = categories[categoryID];
+    for (let i in tabs) {
+        let [categoryName, subcategories] = tabs[i];
 
         categoryButton = document.createElement("div");
         categoryButton.innerHTML = categoryName;
+        categoryButtons[categoryName] = categoryButton;
 
         categoryButton.classList.add("category-selector");
         categoryBar.appendChild(categoryButton);
+        categoryButton.categoryName = categoryName
 
-        categoryButton.onclick = function() { changeCategory(categoryName); }
+        categoryButton.onclick = function() { changeCategory(this.categoryName) }
     }
 }
 
@@ -312,6 +330,7 @@ function setup() {
     addLinks();
     saveWeights();
     addCategorySelectors();
+    changeCategory(categories.all);
 }
 
 setup();
