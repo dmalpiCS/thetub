@@ -541,12 +541,15 @@ search_box.addEventListener('keydown', (e) => {
 /**
 
 for every link:
-    for every keyword in the link:
-        for every word in the user's search: (search.split(" "))
-            for every letter in the current word:
-                if that letter does not equal the corresponding letter in the keyword, continue to next word in user's search
-            if for loop ended without going to next word, add link to shown links, continue to next link
-
+    for every word in the user's search: (use search.split(" ") or something)
+        for every keyword in the link:
+            for every letter in the current word (not keyword):
+                if that letter does not equal the corresponding letter in the keyword, continue to next keyword in user's search
+            if for loop ended without going to next keyword, continue to next word in user's search
+        if for loop ended without going to next word, continue to next link
+    if for loop ended without continuing to next link, add link to shown links
+        
+^^^ i have no idea if this'll work lol but it seems like it might
  */
 
 function search() {
