@@ -308,7 +308,7 @@ var resources = {
 }
 
 const linksArrow = document.getElementById("links-arrow");
-document.getElementById("links-section").addEventListener("scroll", (event) => {
+document.getElementById("links-wrapper").addEventListener("scroll", (event) => {
     linksArrow.classList.add("hidden")
 })
 
@@ -403,10 +403,10 @@ function addLink(linkObj, category) {
 function changeCategory(newCategory) {
     if (newCategory == selectedCategory) { return; }
     if (selectedCategory) {
-        document.getElementById("links-section").removeChild(categorySections[selectedCategory]);
+        document.getElementById("links-wrapper").removeChild(categorySections[selectedCategory]);
         categoryButtons[selectedCategory].classList.remove("selected");
     }
-    document.getElementById("links-section").appendChild(categorySections[newCategory]);
+    document.getElementById("links-wrapper").appendChild(categorySections[newCategory]);
     categoryButtons[newCategory].classList.add("selected");
     selectedCategory = newCategory;
 }
@@ -436,11 +436,11 @@ function addLinks() {
 function addCategorySelectors() {
     categoryBar = document.getElementById("category-bar");
     for (let tabIndex in tabs) {
-        // if (i > 0) {
-        //     let spacer = document.createElement("div");
-        //     spacer.classList.add("spacer")
-        //     categoryBar.appendChild(spacer);
-        // }
+        if (i > 0) {
+            let spacer = document.createElement("div");
+            spacer.classList.add("spacer")
+            categoryBar.appendChild(spacer);
+        }
         let [categoryName, subcategories] = tabs[tabIndex];
 
         let categoryButtonWrapper = document.createElement("div");
@@ -563,6 +563,15 @@ function search() {
         })
     })
     /** Make shownLinks appear on website */
+}
+
+function toggleOptions() {
+    let optionsPullout = document.getElementById("options-pullout");
+    if (optionsPullout.classList.contains("pulled-out")) {
+        optionsPullout.classList.remove("pulled-out");
+    } else {
+        optionsPullout.classList.add("pulled-out");
+    }
 }
 
 function setup() {
