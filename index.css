@@ -42,6 +42,7 @@ html, body {
     /* border-bottom: rgb(200, 200, 200) 1px solid; */
     display: flex;
     align-items: center;
+    z-index: 6;
 }
 
 #icon {
@@ -280,17 +281,19 @@ html, body {
 } */
 
 #links-arrow {
-    --size: 5%;
+    --size: 4vw;
     position: fixed;
     width: var(--size);
     aspect-ratio: 1/1;
-    left: calc(2 * 50% / 3 - var(--size) / 2);
+    left: calc(50% * var(--links-section-ratio) - var(--size) / 2);
     bottom: 1%;
-    transition: 0.05s ease-in;
+    z-index: 0.5;
+
+    transition: bottom 0.1s ease-in;
 }
 
 #links-arrow.hidden {
-    bottom: calc(0px - var(--size) * 2);
+    bottom: calc(0px - 1.5 * var(--size));
 }
 
 #info-section {
@@ -354,6 +357,7 @@ html, body {
     margin-top: calc(-2.5% / 4);
     margin-bottom: calc(var(--link-box-gaps) - 2.5% / 4);
     cursor: pointer;
+    gap: 8%;
 }
 
 .info-box.info-link-button:active {
