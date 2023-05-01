@@ -8,7 +8,7 @@
     --category-bar-height: calc(var(--header-height) * 0.6);
 
     --header-color: #ddb940;
-    --options-pullout-color: #cca833;
+    --options-pullout-color: #e4c255;
     --category-bar-color: rgb(211, 211, 211);
     --links-section-background-color: rgb(234, 234, 234);
     --info-section-background-color: rgb(223, 223, 223);
@@ -32,6 +32,15 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: hidden;
+
+}
+
+/* #header {
+    box-shadow: inset 0px 4px 8px 0px rgba(0,0,0,0.25);
+} */
+
+#category-bar, .dropdown-wrapper, #search-input, .link-box, .info-box {
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.25);
 }
 
 #header {
@@ -86,14 +95,14 @@ html, body {
     height: var(--size);
     right: calc((var(--header-height) - var(--size)) * 0.9);
     aspect-ratio: 1/1;
+    padding: 3px;
+    margin-right: -3px;
+    border-radius: 8px;
     background-color: var(--header-color);
     user-select: none;
 }
 
 #options-button:hover {
-    padding: 3px;
-    margin-right: -3px;
-    border-radius: 8px;
     filter: var(--button-hover);
     cursor: pointer;
 }
@@ -119,11 +128,12 @@ html, body {
 }
 
 #category-bar {
+    position: static;
+    top: 0;
     width: 100%; 
     height: var(--category-bar-height);
     background-color: var(--category-bar-color);
     overflow: hidden;
-    z-index: 1;
 }
 
 .category-button-wrapper {
@@ -172,7 +182,7 @@ html, body {
 
 }
 
-.subcategory-button:last-child {
+.dropdown-wrapper, .subcategory-button:last-child {
     border-radius: 0px 0px 5px 5px;
 }
 
@@ -216,6 +226,10 @@ html, body {
 }
 
 #links-wrapper {
+    position: absolute;
+    z-index: 0;
+    top: var(--category-bar-height);
+    width: 100%;
     height: calc(100% - var(--category-bar-height));
     overflow-y: scroll;
     scrollbar-width: none;
@@ -288,6 +302,7 @@ html, body {
     left: calc(50% * var(--links-section-ratio) - var(--size) / 2);
     bottom: 1%;
     z-index: 0.5;
+    user-select: none;
 
     transition: bottom 0.1s ease-in;
 }
@@ -357,7 +372,7 @@ html, body {
     margin-top: calc(-2.5% / 4);
     margin-bottom: calc(var(--link-box-gaps) - 2.5% / 4);
     cursor: pointer;
-    gap: 8%;
+    /* gap: 8%; */
 }
 
 .info-box.info-link-button:active {
@@ -381,6 +396,13 @@ html, body {
     width: 70%;
     align-items: center;
     user-select: none;
+    font-size: var(--default-font-size);
+
+    transition: 0.05s ease-in-out;
+}
+
+.info-box:hover:not(:active) .info-text {
+    font-size: var(--expanded-font-size);
 }
 
 #info-pullout {
@@ -409,10 +431,46 @@ html, body {
     background-color: var(--options-pullout-color);
     right: calc(-100% * (1 - var(--links-section-ratio)));
     z-index: 10;
-
+    
     transition: right 0.2s ease-in-out;
 }
 
 #options-pullout.pulled-out {
     right: 0px;
+}
+
+.option-button {
+    position: relative;
+    width: 100%;
+    height: 8vw;
+    line-height: 8vw;
+    text-align: center;
+    font-size: 3vw;
+    background-color: var(--options-pullout-color);
+    z-index: 11;
+    user-select: none;
+}
+
+.option-button:hover {
+    cursor: pointer;
+    filter: var(--button-hover);
+}
+
+.option-button:active {
+    filter: var(--button-active);
+    z-index: 13;
+}
+
+.option-spacer {
+    position: relative;
+    width: 50%;
+    height: 3px;
+    margin-top: -1.5px;
+    margin-bottom: -1.5px;
+    margin-left: 25%;
+    background-color: var(--options-pullout-color);
+    filter: var(--button-selected);
+    z-index: 12;
+    border-radius: 3px;
+
 }
