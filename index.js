@@ -149,7 +149,7 @@ var resources = {
             image: "https://assets-global.website-files.com/631b4e8b76f34c510003cdb8/635c45f3a2af5f58d66d0cae_PearDeck%20-%20OpenGraphImage.png",
             weightIndex: 13,
             categories: [categories.all, categories.tide, categories.tideInClass],
-            tags: "peardeck presentation slideshow live pd",
+            tags: "peardeck presentation slideshow live pd joinpd",
             imageCoversFullBox: true
         },
         {
