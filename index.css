@@ -240,6 +240,10 @@ html, body {
     scrollbar-width: none;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 .links-full-container {
     top: var(--category-bar-height);
     margin: var(--link-box-gaps);
