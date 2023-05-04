@@ -13,10 +13,11 @@
     --links-section-background-color: rgb(234, 234, 234);
     --info-section-background-color: rgb(223, 223, 223);
     --info-box-color: rgb(194, 194, 194);
-    --info-page-color: var(--info-box-color);
+    --info-pullout-color: var(--info-box-color);
+    --info-pullout-category-bar-color: rgb(205, 205, 205);
     --search-input-background-color: rgb(231, 231, 231);
     --search-input-text-color: rgb(29, 29, 29);
-    --search-input-placeholder-text-color: rgb(161, 161, 161);;
+    --search-input-placeholder-text-color: rgb(161, 161, 161);
 
     --button-hover: brightness(92.5%);
     --button-active: brightness(85%); 
@@ -39,7 +40,7 @@ html, body {
     box-shadow: inset 0px 4px 8px 0px rgba(0,0,0,0.25);
 } */
 
-#category-bar-wrapper, .dropdown-wrapper, #search-input, .link-box, .info-box {
+#category-bar-wrapper, .dropdown-wrapper, #search-input, .link-box, .info-box, #hotlines-category-bar {
     box-shadow: 0px 0.25vw 0.5vw 0px rgba(0,0,0,0.2);
     /* box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.25); */
 }
@@ -134,11 +135,15 @@ html, body {
     width: 100%;
 }
 
-#category-bar {
+#category-bar, #hotlines-category-bar {
     width: 100%; 
     height: var(--category-bar-height);
     background-color: var(--category-bar-color);
     overflow: hidden;
+}
+
+#hotlines-category-bar {
+    background-color: var(--info-pullout-category-bar-color);
 }
 
 .category-button-wrapper {
@@ -148,7 +153,7 @@ html, body {
     margin: 0;
 }
 
-.category-button, .subcategory-button {
+.category-button, .subcategory-button, .hotlines-category-button {
     background-color: var(--category-bar-color);
 
     min-width: calc(100vw * var(--links-section-ratio) * 0.12);
@@ -161,12 +166,16 @@ html, body {
     user-select: none;
 }
 
-.category-button {
+.category-button, .hotlines-category-button {
     overflow: hidden;
     position: relative;
 
     float: left;
     z-index: 1;
+}
+
+.hotlines-category-button {
+    background-color: var(--info-pullout-category-bar-color);
 }
 
 .dropdown-wrapper {
@@ -207,18 +216,18 @@ html, body {
     border-radius: 3px;
 }
 
-.category-button:hover, .subcategory-button:hover {
+.category-button:hover, .subcategory-button:hover, .hotlines-category-button:hover {
     filter: var(--button-hover);
     cursor: pointer;
 }
 
-.category-button:active, .subcategory-button:active {
+.category-button:active, .subcategory-button:active, .hotlines-category-button:active {
     filter: var(--button-active);
     cursor: pointer;
     z-index: 3;
 }
 
-.category-button.selected, .subcategory-button.selected {
+.category-button.selected, .subcategory-button.selected, .hotlines-category-button.selected {
     filter: var(--button-selected);
     z-index: 3;
 }
@@ -354,10 +363,10 @@ html, body {
     margin-left: calc(0px - var(--link-box-gaps));
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0;
-    background-color: var(--info-page-color);
+    background-color: var(--info-pullout-color);
 }
 
-.info-box.info-page-button:hover {
+.info-box.info-pullout-button:hover {
     width: 105%;
     margin-top: calc(-2.5% / 4);
     margin-left: calc(0px - var(--link-box-gaps));
@@ -365,7 +374,7 @@ html, body {
     cursor: pointer;
 }
 
-.info-box.info-page-button:active {
+.info-box.info-pullout-button:active {
     filter: var(--button-active);
 
     width: 100%;
@@ -416,7 +425,7 @@ html, body {
 
 #info-pullout {
     position: absolute;
-    background-color: var(--info-page-color);
+    background-color: var(--info-pullout-color);
     height: calc(100% - var(--header-height));
     width: calc(100% * var(--links-section-ratio));
     top: var(--header-height);

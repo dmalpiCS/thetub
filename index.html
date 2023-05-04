@@ -26,7 +26,16 @@
         <div id="info-full-container">
         </div>
     </div>
-    <div id="info-pullout"></div>
+    <div id="info-pullout">
+        <div id="hotlines-category-bar">
+            <div class="hotlines-category-button" onclick="selectHotlineCategory(this, 'call')">Call</div><div class="spacer"></div>
+            <div class="hotlines-category-button" onclick="selectHotlineCategory(this, 'text')">Text</div><div class="spacer"></div>
+            <div class="hotlines-category-button" onclick="selectHotlineCategory(this, '24/7')">24/7</div><div class="spacer"></div>
+            <div class="hotlines-category-button" onclick="selectHotlineCategory(this, 'anonymous')">Anonymous</div><div class="spacer"></div>
+            <div class="hotlines-category-button" onclick="selectHotlineCategory(this, 'emergency')">Immediate Emergency</div>
+        </div>
+        <div id="hotlines-numbers-section"></div>
+    </div>
     <div id="options-pullout">
         <div class="option-button" onclick="resetOrder()">Reset Link Order</div>
         <div class="option-spacer"></div>

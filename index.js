@@ -38,35 +38,35 @@ var resources = {
     links: [
         {
             link: "https://sequoia.instructure.com/",
-            image: "tide_canvas.png",
+            image: "pics/tide_canvas.png",
             weightIndex: 34,
             categories: [categories.all, categories.tide],
             tags: "tide canvas sequoia instructure assignments homework"
         },
         {
             link: "https://www.tideacademy.org/",
-            image: "https://www.tideacademy.org/images/logo.png",
+            image: "pics/tide.png",
             weightIndex: 1,
             categories: [categories.all, categories.tide],
             tags: "tide academy website T.I.D.E. homepage"
         },
         {
             link: "https://app.formative.com/",
-            image: "https://www.eschoolnews.com/files/2015/11/icon-formative.png",
+            image: "pics/formative.png",
             weightIndex: 0,
             categories: [categories.all, categories.tide, categories.tideInClass],
             tags: "english formative instructions class assignments homework"
         },
         {
             link: "https://auth.edgenuity.com/Login/Login/Student",
-            image: "https://courseware-login.edgelms-prod.edgenuityapp.com/static/b952492d23615d63c6d37b88f3f17e2d.svg",
+            image: "pics/edgenuity.png",
             weightIndex: 2,
             categories: [categories.all, categories.tide, categories.tideInClass],
             tags: "PE P.E. physical education edgenuity lessons educational assignments"
         },
         {
             link: "https://ic.seq.org",
-            image: "https://www.worthschools.net/userfiles/2022-08/db790598-8faf-42e0-98d0-725e0ded28b7.png?width=600",
+            image: "pics/ic.png",
             weightIndex: 3,
             categories: [categories.all, categories.tide, categories.college],
             tags: "sequoia tide infinite campus ic portal myportal student information schedule grades gradebook calendar attendance transcript",
@@ -74,21 +74,21 @@ var resources = {
         },
         {
             link: "https://myportal.fhda.edu/uPortal/f/home/normal/render.uP/",
-            image: "https://ssoshib.fhda.edu/idp/images/logo_district.png",
+            image: "pics/foothill_myportal.png",
             weightIndex: 4,
             categories: [categories.all, categories.foothill],
             tags: "foothill fhda de anza myportal portal"
         },
         {
             link: "https://docs.google.com/presentation/u/0/?tgif=d",
-            image: "https://www.dignited.com/wp-content/uploads/2021/03/Google-Slides-720x340-1.png",
+            image: "pics/slides.png",
             weightIndex: 5,
             categories: [categories.all, categories.tide, categories.tidePresentation, categories.resources, categories.resourcesGoogle],
             tags: "google slides slideshows presentations"
         },
         {
             link: "https://drive.google.com/?authuser=0",
-            image: "https://cdn.arstechnica.net/wp-content/uploads/2021/07/Google-Drive.jpg",
+            image: "pics/drive.png",
             weightIndex: 6,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
             tags: "google drive files documents folders",
@@ -96,28 +96,28 @@ var resources = {
         },
         {
             link: "https://apstudents.collegeboard.org/",
-            image: "https://schools.dickinsonisd.org/upload/page/0171/widgets/image/039660/ap%20classroom.png",
+            image: "pics/ap_classroom.png",
             weightIndex: 7,
             categories: [categories.all, categories.tide, categories.tideMathScience],
             tags: "ap classroom apclassroom students college board advanced placement math calculus science physics collegeboard assignments"
         },
         {
             link: "https://www.vhlcentral.com/home",
-            image: "https://i.ytimg.com/vi/gBT3EYvreQA/maxresdefault.jpg",
+            image: "pics/vhl.png",
             weightIndex: 8,
             categories: [categories.all, categories.tide, categories.tideSpanish],
             tags: "vhl central vhlcentral vista higher learning spanish espanol assignments"
         },
         {
             link: "https://quizlet.com/",
-            image: "https://www.generalatlantic.com/wp-content/uploads/2020/05/quizlet-logo-indigo-rgb.jpg",
+            image: "pics/quizlet.png",
             weightIndex: 9,
             categories: [categories.all, categories.tide, categories.tideSpanish],
             tags: "quizlet spanish flash cards flashcards studying"
         },
         {
             link: "https://quizlet.com/live",
-            image: "https://kplacido.files.wordpress.com/2016/04/quizlet-live.png",
+            image: "pics/quizlet_live.png",
             weightIndex: 10,
             categories: [categories.all, categories.tide, categories.tideInClass],
             tags: "quizlet live",
@@ -125,28 +125,28 @@ var resources = {
         },
         {
             link: "https://kahoot.it/",
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Kahoot_Logo.svg/2560px-Kahoot_Logo.svg.png",
+            image: "pics/kahoot.png",
             weightIndex: 11,
             categories: [categories.all, categories.tide, categories.tideInClass],
             tags: "kahoot live quiz"
         },
         {
             link: "https://quizizz.com/join",
-            image: "https://content.schoolinsites.com/api/download/?id=0b46de7577ef4c5dbb5f33244fe57635",
+            image: "pics/quizizz.png",
             weightIndex: 35,
             categories: [categories.all, categories.tide, categories.tideInClass],
             tags: "quizizz live"
         },
         {
             link: "https://im.kendallhunt.com/HS/teachers/2/index.html",
-            image: "https://mms.businesswire.com/media/20190115005557/en/663574/5/IM_Logo-01_copy_3.jpg",
+            image: "pics/im.png",
             weightIndex: 12,
             categories: [categories.all, categories.tide, categories.tideMathScience],
-            tags: "integrated mathematics math algebra 1 2 im kendall hunt geometry"
+            tags: "integrated mathematics im math algebra 1 2 im kendall hunt geometry"
         },
         {
             link: "https://app.peardeck.com/join",
-            image: "https://assets-global.website-files.com/631b4e8b76f34c510003cdb8/635c45f3a2af5f58d66d0cae_PearDeck%20-%20OpenGraphImage.png",
+            image: "pics/peardeck.png",
             weightIndex: 13,
             categories: [categories.all, categories.tide, categories.tideInClass],
             tags: "peardeck presentation slideshow live pd joinpd",
@@ -154,56 +154,56 @@ var resources = {
         },
         {
             link: "https://mail.google.com/mail/u/0/#inbox",
-            image: "https://blog.logomyway.com/wp-content/uploads/2021/02/gmail-logo.jpg",
+            image: "pics/gmail.png",
             weightIndex: 14,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
             tags: "gmail google mail inbox email message messaging chat"
         },
         {
             link: "https://www.collegeboard.org/",
-            image: "https://lhsepic.com/wp-content/uploads/2018/05/CB-Big_7.jpeg",
+            image: "pics/college_board.png",
             weightIndex: 15,
             categories: [categories.all, categories.college],
             tags: "college board collegeboard sat psat applications"
         },
         {
             link: "https://www.canva.com/",
-            image: "https://static-cse.canva.com/_next/static/assets/logo_w2000xh641_3b021976d60d0277e95febf805ad9fe8c7d6d54f86969ec03b83299084b7cb93.png",
+            image: "pics/canva.png",
             weightIndex: 16,
             categories: [categories.all, categories.tide, categories.tidePresentation],
             tags: "canva presentations posters pamphlets graphic design video editing editor" //TODO: Add more tags
         },
         {
             link: "https://foothillcollege.instructure.com/",
-            image: "foothill_canvas.png",
+            image: "pics/foothill_canvas.png",
             weightIndex: 17,
             categories: [categories.all, categories.foothill],
             tags: "foothill canvas fhda instructure assignments"
         },
         {
             link: "https://www.mybib.com/#/",
-            image: "https://www.mybib.com/images/mybib.png",
+            image: "pics/my_bib.png",
             weightIndex: 18,
             categories: [categories.all, categories.tide, categories.tideGrammar],
             tags: "mybib bibliography citations citing sources works cited essays"
         },
         {
             link: "https://www.easybib.com/",
-            image: "http://s3.amazonaws.com/libapps/accounts/20130/images/logo-easybib-chegg.png",
+            image: "pics/easy_bib.png",
             weightIndex: 19,
             categories: [categories.all, categories.tide, categories.tideGrammar],
             tags: "easybib bibliography chegg citations citing sources works cited essays"
         },
         {
             link: "https://paper.co/",
-            image: "https://upload.wikimedia.org/wikipedia/en/1/1e/Paper_Education_Company_logo2020.png",
+            image: "pics/paper.png",
             weightIndex: 20,
             categories: [categories.all, categories.resources],
             tags: "paper tutoring help academic support feedback essays papers educational"
         },
         {
             link: "https://www.khanacademy.org/",
-            image: "https://cdn.kastatic.org/images/khan-logo-dark-background-2.png",
+            image: "pics/khan.png",
             weightIndex: 21,
             categories: [categories.all, categories.resources],
             tags: "khan academy khanacademy educational lessons practice academic support math science studying",
@@ -211,14 +211,14 @@ var resources = {
         },
         {
             link: "https://www.desmos.com/calculator",
-            image: "https://blog.tcea.org/wp-content/uploads/2017/04/rQ6PihuxWftF0aslS7VVwg-header-1.png",
+            image: "pics/desmos.png",
             weightIndex: 22,
             categories: [categories.all, categories.tide, categories.tideMathScience],
             tags: "desmos online graphing calculator science physics mathematics calculus graphs plotting"
         },
         {
             link: "https://www.merriam-webster.com/",
-            image: "https://guardian.ng/wp-content/uploads/2020/06/Merriam-Webster-Dictionary.jpg",
+            image: "pics/dictionary.png",
             weightIndex: 23,
             categories: [categories.all, categories.tide, categories.tideGrammar],
             tags: "merriam webster merriam-webster dictionary words english writing definitions grammar",
@@ -226,21 +226,21 @@ var resources = {
         },
         {
             link: "https://www.thesaurus.com/",
-            image: "https://mma.prnewswire.com/media/1313959/Thesauraus_com_logo.jpg?p=facebook",
+            image: "pics/thesaurus.png",
             weightIndex: 24,
             categories: [categories.all, categories.tide, categories.tideGrammar],
             tags: "thesaurus words dictionary synonyms antonyms english writing grammar support"
         },
         {
             link: "https://www.grammarly.com/",
-            image: "https://images.ctfassets.net/1e6ajr2k4140/2MnBIaklgnmba5jr8FHh6g/20fd06afe62738a2e41b29e84febd89e/Group_869.png",
+            image: "pics/grammarly.png",
             weightIndex: 25,
             categories: [categories.all, categories.tide, categories.tideGrammar],
             tags: "grammarly grammar grammer spelling corrections feedback sentences punctuations words english writing support essays"
         },
         {
             link: "https://www.etymonline.com/",
-            image: "https://cdn.etymonline.com/web/logo.png",
+            image: "pics/etymology.png",
             weightIndex: 26,
             categories: [categories.all, categories.tide, categories.tideGrammar],
             tags: "etymonline etymology online dictionary definitions words origin history dictionary english grammar writing",
@@ -248,28 +248,28 @@ var resources = {
         },
         {
             link: "https://www.slidescarnival.com/",
-            image: "https://www.slidescarnival.com/wp-content/uploads/2019/08/slidescarnival-logotype.png",
+            image: "pics/slides_carnival.png",
             weightIndex: 27,
             categories: [categories.all, categories.tide, categories.tidePresentation],
             tags: "slidescarnival carnival slides slideshow templates themes decorations presentations"
         },
         {
             link: "https://app.scoir.com/student/dashboard",
-            image: "https://www.clarksvilleschools.org/wp-content/uploads/2019/09/SCOIR-logo2.png",
+            image: "pics/scoir.png",
             weightIndex: 28,
             categories: [categories.all, categories.college],
             tags: "scoir college university applications colleges applying information counseling"
         },
         {
             link: "https://apply.commonapp.org/dashboard",
-            image: "https://upload.wikimedia.org/wikipedia/en/thumb/1/19/Common_Application_2019_Logo.svg/640px-Common_Application_2019_Logo.svg.png",
+            image: "pics/common_app.png",
             weightIndex: 29,
             categories: [categories.all, categories.college],
             tags: "commonapp common applications college university applying"
         },
         {
             link: "https://apply.universityofcalifornia.edu/my-application/login",
-            image: "https://www.stocktonusd.net/cms/lib/CA01902791/Centricity/Domain/4001/ucal-fb-image.png",
+            image: "pics/uc.png",
             weightIndex: 30,
             categories: [categories.all, categories.college],
             tags: "uc university of california applications applying college UCB berkeley UCD davis UCI irvine UCLA los angeles UCM merced UCR riverside UCSD san diego UCSB santa barbara UCSC santa cruz",
@@ -277,24 +277,66 @@ var resources = {
         },
         {
             link: "https://www.calstate.edu/apply",
-            image: "https://www.logosvgpng.com/wp-content/uploads/2021/03/csu-the-california-state-university-logo-vector.png",
+            image: "pics/csu.png",
             weightIndex: 31,
             categories: [categories.all, categories.college],
             tags: "california state university cal state calstate csu applications applying college"
         },
         {
             link: "https://sequoiauhsd.gethelphss.com/Login/landing",
-            image: "https://images.squarespace-cdn.com/content/v1/5a87093f1f318d75fe8016f2/1626200149039-MQLJ21SH5PV2WFF26YH1/TechSupport_Icon_Navy.png",
+            image: "pics/tech_support.png",
             weightIndex: 32,
             categories: [categories.all, categories.resources, categories.tide],
             tags: "sequoia tide help technical support computer problems gethelp broken fix"
         },
         {
             link: "https://foothill.edu/",
-            image: "https://foothill.edu/_resources/images/logo.png",
+            image: "pics/foothill.png",
             weightIndex: 33,
             categories: [categories.all, categories.foothill],
             tags: "foothill website fhda homepage"
+        },
+        {
+            link: "https://nearpod.com/student/",
+            image: "pics/nearpod.png",
+            weightIndex: 35,
+            categories: [categories.all, categories.tide, categories.tideInClass],
+            tags: "nearpod near pod lessons"
+        },
+        {
+            link: "https://app.clickup.com/",
+            image: "pics/clickup.png",
+            weightIndex: 36,
+            categories: [categories.all, categories.tide, categories.tideInClass],
+            tags: "clickup click up"
+        },
+        {
+            link: "https://classroom.google.com/?pli=1",
+            image: "pics/google_classroom.png",
+            weightIndex: 37,
+            categories: [categories.all, categories.resources, categories.resourcesGoogle, categories.tide, categories.tideInClass],
+            tags: "google classroom"
+        },
+        {
+            link: "https://www.geogebra.org/calculator",
+            image: "pics/geogebra.png",
+            weightIndex: 38,
+            categories: [categories.all],
+            tags: "geogebra geometry mathmatics algebra calculator graphs plotting"
+        },
+        {
+            link: "",
+            image: "",
+            weightIndex: 35,
+            categories: [categories.all],
+            tags: ""
+        },
+        {
+            link: "",
+            image: "",
+            weightIndex: 35,
+            categories: [categories.all],
+            tags: ""
         },
     ],
     info: [
@@ -302,45 +344,56 @@ var resources = {
             type: "link",
             text: "Bell Schedule",
             link: "https://www.tideacademy.org/About/Bell-Schedule/index.html",
-            image: "https://cdn.icon-icons.com/icons2/1514/PNG/512/bellalarmsymbol_105038.png",
+            image: "pics/bell.png",
             weightIndex: 0,
         },
         {
             type: "link",
             text: "Bus Schedule",
-            link: "https://www.tideacademy.org/Students/Bus-Schedule/index.html",
-            // image: "https://cdn-icons-png.flaticon.com/512/5706/5706988.png",  
-            image: "https://cdn-icons-png.flaticon.com/512/1164/1164673.png",
+            link: "https://www.tideacademy.org/Students/Bus-Schedule/index.html",  
+            image: "pics/bus.png",
             weightIndex: 1,
         },
         {
             type: "link",
             text: "Class Schedule",
             link: "https://ic.seq.org/campus/nav-wrapper/student/portal/student/schedule",
-            image: "https://cdn-icons-png.flaticon.com/512/55/55281.png",  
+            image: "pics/class_schedule.png",  
             weightIndex: 2,
         },
         {
             type: "page",
             text: "Mental Health Hotlines",
-            html: "<div>asodfaosufhsou</div>",
-            image: "https://www.iconpacks.net/icons/1/free-phone-icon-14-thumb.png",
+            html: `
+            
+            `,
+            image: "pics/hotlines",
             weightIndex: 3,
         },
         {
             type: "page",
             text: "Local Teen Clinics",
             html: "Health",
-            image: "https://cdn-icons-png.flaticon.com/512/710/710137.png",
+            image: "pics/clinic.png",
             weightIndex: 4,
         },
         {
             type: "link",
             text: "Staff Directory",
             link: "https://www.tideacademy.org/About/Staff-Directory/index.html",
-            image: "https://cdn-icons-png.flaticon.com/512/33/33308.png",
+            image: "pics/staff.png",
             weightIndex: 5,
+        },
+        {
+            type: "link",
+            text: "TIDE Calendar",
+            link: "https://www.tideacademy.org/Calendar/",
+            image: "pics/calendar.png",
+            weightIndex: 6,
         }
+    ],
+    mentalHealthHotlines: [
+        
     ]
 }
 
@@ -520,7 +573,7 @@ function addLinks() {
     }
 }
 
-function addCategorySelectors() {
+function addCategoryButtons() {
     categoryBar = document.getElementById("category-bar");
     for (let tabIndex in tabs) {
         if (tabIndex > 0) {
@@ -589,7 +642,7 @@ function expand(button) {
         infoPullout.classList.remove("pulled-out");
         button.classList.remove("selected");
     } else {
-        infoPullout.innerHTML = button.pageHTML;
+        // infoPullout.innerHTML = button.pageHTML;
         infoPullout.classList.add("pulled-out")
         button.classList.add("selected")
     }
@@ -601,7 +654,7 @@ function addInfo() {
         let infoBox = document.createElement("a");
         infoBox.classList.add("info-box");
         if (infoObj.type == "page") {
-            infoBox.classList.add("info-page-button");
+            infoBox.classList.add("info-pullout-button");
             infoBox.onclick = function() { expand(this) };
             infoBox.pageHTML = infoObj.html;
         } else if (infoObj.type == "link") {
@@ -627,6 +680,15 @@ function addInfo() {
 
         infoContainer.appendChild(infoBox);
     })
+}
+
+function selectHotlineCategory(button=undefined, category=undefined) {
+    let hotlinesNumbersSection = document.getElementById("hotlines-numbers-section");
+    if (!hotlinesNumbersSection) { return }
+    hotlinesNumbersSection.innerHTML = "";
+    if (!button || !category) {
+
+    }
 }
 
 var search_box = document.getElementById("search-input");
@@ -682,7 +744,7 @@ function setup() {
     createLinkBoxes();
     addLinks();
     addInfo();
-    addCategorySelectors();
+    addCategoryButtons();
     changeCategory(categories.all);
 
     saveWeights();
