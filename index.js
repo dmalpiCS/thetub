@@ -59,7 +59,7 @@ var resources = {
         },
         {
             link: "https://auth.edgenuity.com/Login/Login/Student",
-            image: "pics/edgenuity.png",
+            image: "pics/edgenuity.svg",
             weightIndex: 2,
             categories: [categories.all, categories.tide, categories.tideInClass],
             tags: "PE P.E. physical education edgenuity lessons educational assignments"
@@ -324,20 +324,6 @@ var resources = {
             categories: [categories.all],
             tags: "geogebra geometry mathmatics algebra calculator graphs plotting"
         },
-        {
-            link: "",
-            image: "",
-            weightIndex: 35,
-            categories: [categories.all],
-            tags: ""
-        },
-        {
-            link: "",
-            image: "",
-            weightIndex: 35,
-            categories: [categories.all],
-            tags: ""
-        },
     ],
     info: [
         {
@@ -358,7 +344,7 @@ var resources = {
             type: "link",
             text: "Class Schedule",
             link: "https://ic.seq.org/campus/nav-wrapper/student/portal/student/schedule",
-            image: "pics/class_schedule.png",  
+            image: "pics/class.png",  
             weightIndex: 2,
         },
         {
@@ -367,7 +353,7 @@ var resources = {
             html: `
             
             `,
-            image: "pics/hotlines",
+            image: "pics/hotlines.png",
             weightIndex: 3,
         },
         {
@@ -393,7 +379,10 @@ var resources = {
         }
     ],
     mentalHealthHotlines: [
-        
+        {
+            categories: ["call", "emergency", "24/7"],
+            number: "(123) 456-7890"
+        }
     ]
 }
 
@@ -645,6 +634,8 @@ function expand(button) {
         // infoPullout.innerHTML = button.pageHTML;
         infoPullout.classList.add("pulled-out")
         button.classList.add("selected")
+
+        // if (button.)
     }
 }
 
@@ -682,12 +673,33 @@ function addInfo() {
     })
 }
 
+let selectedHotlineCategories = []
+
 function selectHotlineCategory(button=undefined, category=undefined) {
     let hotlinesNumbersSection = document.getElementById("hotlines-numbers-section");
     if (!hotlinesNumbersSection) { return }
+    if (button && category) {
+        if (button.classList.contains("selected")) {
+            button.classList.remove("selected");
+            const index = array.indexOf(category);
+            if (index > -1) { array.splice(index, 1); }
+        } else {
+            button.classList.add("selected");
+            selectedHotlineCategories.push(category)
+        }
+    }
     hotlinesNumbersSection.innerHTML = "";
-    if (!button || !category) {
-
+    hotlineLoop: for (let hotlineI in resources.mentalHealthHotlines) {
+        let hotline = resources.mentalHealthHotlines[hotlineI];
+        for (let categoryI in selectedHotlineCategories) {
+            if (hotline.categories.includes(selectedHotlineCategories[categoryI])) {
+                let newHotlineElement = document.createElement("div");
+                newHotlineElement.classList.add("hotline");
+                newHotlineElement.innerHTML = `${hotline.number}`;
+                hotlinesNumbersSection.appendChild(newHotlineElement);
+                continue hotlineLoop;
+            }
+        }
     }
 }
 
