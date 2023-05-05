@@ -40,7 +40,7 @@ html, body {
     box-shadow: inset 0px 4px 8px 0px rgba(0,0,0,0.25);
 } */
 
-#category-bar-wrapper, .dropdown-wrapper, #search-input, .link-box, .info-box, #hotlines-category-bar {
+#category-bar-wrapper, .dropdown-wrapper, #search-input, .link-box, .info-box, #hotlines-category-bar, .hotline {
     box-shadow: 0px 0.25vw 0.5vw 0px rgba(0,0,0,0.2);
     /* box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.25); */
 }
@@ -439,6 +439,33 @@ html, body {
     transition: left 0.2s ease-in-out, visiblity 0.2s;
     visibility: visible;
     left: 0px;
+}
+
+.hotline {
+    --padding: 13px;
+    float: left;
+    display: flex;
+    background-color: var(--info-pullout-category-bar-color);
+    border-radius: var(--link-box-border-radii);
+    margin-left: var(--link-box-gaps);
+    margin-top: var(--link-box-gaps);
+    padding: var(--padding);
+    width: calc((100% - 4 * var(--link-box-gaps)) / 3 - 2 * var(--padding));
+    height: 7vw;
+    /* align-items: center; */
+    gap: 0.35vw;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.3vw
+}
+
+.hotline-label {
+    display: flexbox;
+    font-weight: bold;
+}
+
+.hotline-numbers {
+    display: flexbox;
 }
 
 #options-pullout {

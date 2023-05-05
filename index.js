@@ -31,6 +31,14 @@ var selectedCategory;
 var categorySectionShowing;
 var categoryButtons = {};
 
+var hotlineCategories = {
+    call: "Call",
+    text: "Text",
+    alwaysActive: "24/7",
+    anonymous: "Anonymous",
+    emergency: "Immediate Emergency"
+}
+
 var linkWeights = [];
 var infoWeights = [];
 
@@ -77,7 +85,7 @@ var resources = {
             image: "pics/foothill_myportal.png",
             weightIndex: 4,
             categories: [categories.all, categories.foothill],
-            tags: "foothill fhda de anza myportal portal"
+            tags: "foothill fhda de anza myportal portal information"
         },
         {
             link: "https://docs.google.com/presentation/u/0/?tgif=d",
@@ -149,7 +157,7 @@ var resources = {
             image: "pics/peardeck.png",
             weightIndex: 13,
             categories: [categories.all, categories.tide, categories.tideInClass],
-            tags: "peardeck presentation slideshow live pd joinpd",
+            tags: "peardeck pear deck presentation slideshow live pd joinpd",
             imageCoversFullBox: true
         },
         {
@@ -171,14 +179,14 @@ var resources = {
             image: "pics/canva.png",
             weightIndex: 16,
             categories: [categories.all, categories.tide, categories.tidePresentation],
-            tags: "canva presentations posters pamphlets graphic design video editing editor" //TODO: Add more tags
+            tags: "canva presentations posters pamphlets graphic design video editing editor" 
         },
         {
             link: "https://foothillcollege.instructure.com/",
             image: "pics/foothill_canvas.png",
             weightIndex: 17,
             categories: [categories.all, categories.foothill],
-            tags: "foothill canvas fhda instructure assignments"
+            tags: "foothill canvas fhda instructure assignments homework"
         },
         {
             link: "https://www.mybib.com/#/",
@@ -308,21 +316,56 @@ var resources = {
             image: "pics/clickup.png",
             weightIndex: 36,
             categories: [categories.all, categories.tide, categories.tideInClass],
-            tags: "clickup click up"
+            tags: "clickup click up sprint collaboration"
         },
         {
             link: "https://classroom.google.com/?pli=1",
             image: "pics/google_classroom.png",
             weightIndex: 37,
             categories: [categories.all, categories.resources, categories.resourcesGoogle, categories.tide, categories.tideInClass],
-            tags: "google classroom"
+            tags: "google classroom lessons classes"
         },
         {
             link: "https://www.geogebra.org/calculator",
             image: "pics/geogebra.png",
             weightIndex: 38,
-            categories: [categories.all],
+            categories: [categories.all, categories.tide, categories.tideMathScience],
             tags: "geogebra geometry mathmatics algebra calculator graphs plotting"
+        },
+        {
+            link: "https://docs.google.com/document/u/0/?tgif=c",
+            image: "pics/docs.png",
+            weightIndex: 39,
+            categories: [categories.all, categories.resources, categories.resourcesGoogle],
+            tags: "google docs documents writing notes"
+        },
+        {
+            link: "https://docs.new/",
+            image: "pics/new_doc.png",
+            weightIndex: 40,
+            categories: [categories.all, categories.resources, categories.resourcesGoogle],
+            tags: "google docs documents writing notes new create"
+        },
+        {
+            link: "https://slides.new/",
+            image: "pics/new_slide.png",
+            weightIndex: 41,
+            categories: [categories.all, categories.resources, categories.resourcesGoogle],
+            tags: "google slides slideshows presentations new create"
+        },
+        {
+            link: "https://docs.google.com/spreadsheets/u/0/?tgif=d",
+            image: "pics/sheets.png",
+            weightIndex: 42,
+            categories: [categories.all, categories.resources, categories.resourcesGoogle],
+            tags: "google sheets spreadsheets"
+        },
+        {
+            link: "https://sheets.new/",
+            image: "pics/new_sheet.png",
+            weightIndex: 43,
+            categories: [categories.all, categories.resources, categories.resourcesGoogle],
+            tags: "google sheets spreadsheets new create"
         },
     ],
     info: [
@@ -350,16 +393,17 @@ var resources = {
         {
             type: "page",
             text: "Mental Health Hotlines",
+            id: "hotlines",
             html: `
-            
-            `,
+            <div id="hotlines-category-bar"></div>
+            <div id="hotlines-numbers-section"></div>`,
             image: "pics/hotlines.png",
             weightIndex: 3,
         },
         {
             type: "page",
             text: "Local Teen Clinics",
-            html: "Health",
+            html: "<marquee style='width: 100%; margin-top: 20px;'>~ Local Teen Clinics ~</marquee>",
             image: "pics/clinic.png",
             weightIndex: 4,
         },
@@ -380,11 +424,50 @@ var resources = {
     ],
     mentalHealthHotlines: [
         {
-            categories: ["call", "emergency", "24/7"],
-            number: "(123) 456-7890"
+            label: "Behavior Health and Recovery Services",
+            numbers: [
+                {
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive],
+                    number: "800-686-0101"
+                }
+            ]
+        },
+        {
+            label: "San Mateo Crisis Intervention and Suicide Prevention Hotline",
+            numbers: [
+                {
+                    number: "650-579-0350", 
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive, hotlineCategories.emergency],
+
+                },
+                {
+                    number: "800-273-8255",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive, hotlineCategories.emergency],
+                }
+            ]
+        },
+        {
+            label: "Starvista Teen Crisis",
+            numbers: [
+                {
+                    number: "650-747-6463",
+                    categories: [hotlineCategories.text],
+                    time: "M-F, 4-10 PM",
+                }
+            ]
         }
     ]
 }
+//         {
+            
+// l: ""San Mateo Medical Center P sychiatric Emergency  ervices ,
+//             numbers: [
+//                 {
+//                     number: "650-
+
+// vcategories: []                    ,2662-37
+//                 }
+//             ]     }]}
 
 const linksArrow = document.getElementById("links-arrow");
 document.getElementById("links-wrapper").addEventListener("scroll", (event) => {
@@ -631,11 +714,28 @@ function expand(button) {
         infoPullout.classList.remove("pulled-out");
         button.classList.remove("selected");
     } else {
-        // infoPullout.innerHTML = button.pageHTML;
+        infoPullout.innerHTML = button.pageHTML;
         infoPullout.classList.add("pulled-out")
         button.classList.add("selected")
 
-        // if (button.)
+        if (button.infoId == "hotlines") {
+            let categoryBar = document.getElementById("hotlines-category-bar");
+            let i = 0;
+            for (let categoryID in hotlineCategories) {
+                if (i++ > 0) {
+                    let spacer = document.createElement("div");
+                    spacer.classList.add("spacer")
+                    categoryBar.appendChild(spacer);
+                }
+                let category = hotlineCategories[categoryID];
+                let newCategoryButton = document.createElement("div");
+                newCategoryButton.classList.add("hotlines-category-button");
+                newCategoryButton.onclick = function() { selectHotlineCategory(this, category); }
+                newCategoryButton.innerHTML = category;
+                categoryBar.appendChild(newCategoryButton);
+            }
+            selectHotlineCategory();
+        }
     }
 }
 
@@ -648,6 +748,9 @@ function addInfo() {
             infoBox.classList.add("info-pullout-button");
             infoBox.onclick = function() { expand(this) };
             infoBox.pageHTML = infoObj.html;
+            if ("id" in infoObj) {
+                infoBox.infoId = infoObj.id;
+            }
         } else if (infoObj.type == "link") {
             infoBox.classList.add("info-link-button");
             infoBox.href = infoObj.link;
@@ -681,8 +784,8 @@ function selectHotlineCategory(button=undefined, category=undefined) {
     if (button && category) {
         if (button.classList.contains("selected")) {
             button.classList.remove("selected");
-            const index = array.indexOf(category);
-            if (index > -1) { array.splice(index, 1); }
+            const index = selectedHotlineCategories.indexOf(category);
+            if (index > -1) { selectedHotlineCategories.splice(index, 1); }
         } else {
             button.classList.add("selected");
             selectedHotlineCategories.push(category)
@@ -691,15 +794,52 @@ function selectHotlineCategory(button=undefined, category=undefined) {
     hotlinesNumbersSection.innerHTML = "";
     hotlineLoop: for (let hotlineI in resources.mentalHealthHotlines) {
         let hotline = resources.mentalHealthHotlines[hotlineI];
-        for (let categoryI in selectedHotlineCategories) {
-            if (hotline.categories.includes(selectedHotlineCategories[categoryI])) {
-                let newHotlineElement = document.createElement("div");
-                newHotlineElement.classList.add("hotline");
-                newHotlineElement.innerHTML = `${hotline.number}`;
-                hotlinesNumbersSection.appendChild(newHotlineElement);
-                continue hotlineLoop;
+        let atLeastOneNumberValid = false;
+        numberLoop: for (let numberI in hotline.numbers) {
+            let numberObj = hotline.numbers[numberI];
+            for (let categoryI in selectedHotlineCategories) {
+                if (!numberObj.categories.includes(selectedHotlineCategories[categoryI])) {
+                    continue numberLoop;
+                }
+            }
+            atLeastOneNumberValid = true;
+            break numberLoop;
+         }
+        if (!atLeastOneNumberValid) { continue hotlineLoop; }
+
+        let newHotlineElement = document.createElement("div");
+        newHotlineElement.classList.add("hotline");
+
+        let labelElement = document.createElement("div");
+        labelElement.classList.add("hotline-label");
+        labelElement.innerHTML = hotline.label;
+
+        let numbersElement = document.createElement("div");
+        numbersElement.classList.add("hotline-numbers");
+        numberLoop: for (let numberI in hotline.numbers) {
+            let numberObj = hotline.numbers[numberI]
+            for (let categoryI in selectedHotlineCategories) {
+                if (!numberObj.categories.includes(selectedHotlineCategories[categoryI])) {
+                    continue numberLoop;
+                }
+            }
+            if (numberI > 0) { numbersElement.innerHTML += "<br>"; }
+            if (numberObj.categories.includes(hotlineCategories.call) && numberObj.categories.includes(hotlineCategories.text)) {
+                numbersElement.innerHTML += "CALL/TEXT: ";
+            } else if (numberObj.categories.includes(hotlineCategories.call)) {
+                numbersElement.innerHTML += "CALL: ";
+            } else if (numberObj.categories.includes(hotlineCategories.text)) {
+                numbersElement.innerHTML += "TEXT: ";
+            }
+            numbersElement.innerHTML += numberObj.number;
+            if ("time" in numberObj) {
+                numbersElement.innerHTML += ` (${numberObj.time})`
             }
         }
+        
+        newHotlineElement.appendChild(labelElement);
+        newHotlineElement.appendChild(numbersElement);
+        hotlinesNumbersSection.appendChild(newHotlineElement);
     }
 }
 
