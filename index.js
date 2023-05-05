@@ -575,12 +575,12 @@ for (let categoryID in categories) {
     newSection.classList.add("links-full-container");
 }
 
-function addLink(linkObj, categorySection) {
+function addLink(linkObj, categorySection, boxesPerRow=4) {
     lastRowContainer = categorySection.lastChild;
     lastRowIndex = categorySection.childNodes.length - 1;
     if (lastRowIndex == -1 || 
-        (lastRowIndex == 0 && lastRowContainer.childNodes.length == 3) ||
-        (lastRowIndex > 0  && lastRowContainer.childNodes.length == 4)) {
+        (lastRowIndex == 0 && lastRowContainer.childNodes.length == boxesPerRow - 1) ||
+        (lastRowIndex > 0  && lastRowContainer.childNodes.length == boxesPerRow)) {
         lastRowContainer = document.createElement("div")
         lastRowContainer.classList.add("links-row-container")
         
@@ -595,6 +595,12 @@ function addLink(linkObj, categorySection) {
 
 function clearCategorySection(categorySection) {
     categorySection.innerHTML = "";
+}
+
+function clearAllCategorySections() {
+    for (category in categorySections) {
+        clearCategorySection(categorySections[category]);
+    }
 }
 
 function changeCategorySection(newCategorySection) {
@@ -618,10 +624,10 @@ function changeCategory(newCategory) {
     selectedCategory = newCategory;
 }
 
-function fillInCategorySection(categorySection) {
+function fillInCategorySection(categorySection, boxesPerRow=4) {
     lastRow = categorySection.lastChild;
     lastRowIndex = categorySection.childNodes.length - 1;
-    desiredColumns = lastRowIndex == -1 ? 0 : (lastRowIndex == 0 ? 3 : 4);
+    desiredColumns = lastRowIndex == -1 ? 0 : (lastRowIndex == 0 ? boxesPerRow - 1 : boxesPerRow);
 
     while (lastRow && desiredColumns - lastRow.childNodes.length > 0) {
         newLinkBox = document.createElement("a");
@@ -632,16 +638,17 @@ function fillInCategorySection(categorySection) {
     }
 }
 
-function addLinks() {
+function addLinks(boxesPerRow) {
+    clearAllCategorySections();
     resources.links.forEach((linkObj) => {
         linkObj.categories.forEach((category) => {
-            addLink(linkObj, categorySections[category]);
+            addLink(linkObj, categorySections[category], boxesPerRow);
         })
     })
     
 
     for (let category in categorySections) {
-        fillInCategorySection(categorySections[category]);
+        fillInCategorySection(categorySections[category], boxesPerRow);
     }
 }
 
@@ -891,10 +898,27 @@ function toggleOptions() {
     }
 }
 
+var prevBoxesPerRow = false;
+function onResize(event) {
+    let windowRatio = window.innerWidth / window.innerHeight;
+    let boxesPerRow = 4;
+    if (windowRatio < 1) { boxesPerRow = 2 }
+    else if (windowRatio < 1.4) { boxesPerRow = 3 }
+    if (prevBoxesPerRow == false || prevBoxesPerRow != boxesPerRow) {
+        prevBoxesPerRow = boxesPerRow;
+        addLinks(boxesPerRow);
+    }
+    // (0, 0.8]: 0 + 2
+    // (0.9, 1.6]: 3
+    // (1.6, 2.4]: 4
+}
+
+addEventListener("resize", onResize);
+
 function setup() {
     loadWeights();
     createLinkBoxes();
-    addLinks();
+    onResize();
     addInfo();
     addCategoryButtons();
     changeCategory(categories.all);

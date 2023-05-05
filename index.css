@@ -159,11 +159,16 @@ html, body {
     min-width: calc(100vw * var(--links-section-ratio) * 0.12);
     height: var(--category-bar-height);
     line-height: var(--category-bar-height);
-    font-size: calc(var(--category-bar-height) * 0.65);
+    font-size: calc(var(--category-bar-height) * 0.8 - 5px);
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
     user-select: none;
+
+    /* TODO: Make more stuff (like padding for this) based on vw, and make the height of category bar and header not scale so much with vw
+        Make the logo and title still resize with header but have a max size, and and the category button text scale with vw independently of header height
+        Make search bar scale horizontally the same amount that it does right now, but make it scale not scale vertically (so it matches with the header's height)
+        Make info boxes not scale to much vertically with vw, but make sure the text and icons in them still scale the same */
 }
 
 .category-button, .hotlines-category-button {
@@ -214,6 +219,7 @@ html, body {
     height: 75%;
     z-index: 2;
     border-radius: 3px;
+    pointer-events: none;
 }
 
 .category-button:hover, .subcategory-button:hover, .hotlines-category-button:hover {
