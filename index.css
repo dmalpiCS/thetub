@@ -1,6 +1,6 @@
 * {
     --header-height: 5vw;
-    --header-padding: calc(0.17 * var(--header-height));
+    --header-padding: calc(0.14 * var(--header-height));
     --header-icon-size: calc(var(--header-height) - 2 * var(--header-padding));
     --link-box-gaps: 1.5vw;
     --link-box-border-radii: 2vw;
@@ -58,7 +58,7 @@ html, body {
 
 #icon {
     position: absolute;
-    left: var(--header-padding);
+    left: calc(var(--header-padding) * 1.2);
     height: var(--header-icon-size);
     aspect-ratio: 1/1;
     user-select: none;
@@ -66,10 +66,10 @@ html, body {
 
 #title {
     position: absolute;
-    left: calc(var(--header-padding) * 2 + var(--header-icon-size));
+    left: calc(var(--header-padding) * (1.2 + 0.9) + var(--header-icon-size));
     font-size: calc(var(--header-height) * 0.6);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 500;
+    font-weight: bold;
     user-select: none;
 }
 
