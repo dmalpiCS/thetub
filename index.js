@@ -24,10 +24,10 @@ var tabs = [
     [categories.foothill, []],
     [categories.resources, [
         categories.resourcesSupport, 
-        categories.resourcesGoogle, 
         categories.resourcesPresentation, 
         categories.resourcesGrammar, 
-        categories.resourcesMath]],
+        categories.resourcesMath,
+        categories.resourcesGoogle]], 
     [categories.college, []],
 ];
 var selectedCategory;
@@ -134,7 +134,7 @@ var resources = {
             name: "Quizlet",
             image: "pics/quizlet.png",
             weightIndex: 9,
-            categories: [categories.all, categories.tide, categories.tideSpanish],
+            categories: [categories.all, categories.tide, categories.tideSpanish, categories.resources, categories.resourcesSupport],
             tags: "quizlet spanish flash cards flashcards studying"
         },
         {
@@ -332,7 +332,7 @@ var resources = {
             name: "TIDE Tech Support",
             image: "pics/tech_support.png",
             weightIndex: 32,
-            categories: [categories.all, categories.resources, categories.tide],
+            categories: [categories.all, categories.resources, categories.tide, categories.resourcesSupport],
             tags: "sequoia tide help technical support computer problems gethelp broken fix"
         },
         {
@@ -396,7 +396,7 @@ var resources = {
             name: "New Google Slide",
             image: "pics/new_slide.png",
             weightIndex: 41,
-            categories: [categories.all, categories.resources, categories.resourcesGoogle],
+            categories: [categories.all, categories.resources, categories.resourcesGoogle, categories.resourcesPresentation],
             tags: "google slides slideshows presentations new create"
         },
         {

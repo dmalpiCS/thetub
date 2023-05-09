@@ -377,7 +377,7 @@ html, body {
     background-color: var(--info-pullout-color);
 }
 
-.info-box.info-pullout-button:hover {
+.info-box.info-pullout-button.selected:hover {
     width: 105%;
     margin-top: calc(-2.5% / 4);
     margin-left: calc(0px - var(--link-box-gaps));
@@ -385,26 +385,29 @@ html, body {
     cursor: pointer;
 }
 
-.info-box.info-pullout-button:active {
+.info-box.info-pullout-button.selected:active {
     filter: var(--button-active);
+    border-radius: var(--link-box-border-radii);
+    
 
     width: 100%;
     margin-top: 0px;
-    margin-left: calc(0px - var(--link-box-gaps));
+    margin-left: calc(0px - var(--link-box-gaps) * 0);
     margin-bottom: var(--link-box-gaps);
 }
 
-.info-box.info-link-button:hover {
+.info-box.info-link-button:hover, .info-box.info-pullout-button:hover:not(.selected) {
     width: 105%;
     margin-left: -2.5%;
     margin-right: -2.5%;
     margin-top: calc(-2.5% / 4);
     margin-bottom: calc(var(--link-box-gaps) - 2.5% / 4);
+    border-radius: var(--link-box-border-radii);
     cursor: pointer;
     /* gap: 8%; */
 }
 
-.info-box.info-link-button:active {
+.info-box.info-link-button:active, .info-box.info-pullout-button:active:not(.selected) {
     filter: var(--button-active);
     width: 100%;
     margin: 0px;
