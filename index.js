@@ -49,6 +49,7 @@ var resources = {
     links: [
         {
             link: "https://sequoia.instructure.com/",
+            name: "TIDE Canvas",
             image: "pics/tide_canvas.png",
             weightIndex: 34,
             categories: [categories.all, categories.tide],
@@ -56,6 +57,7 @@ var resources = {
         },
         {
             link: "https://www.tideacademy.org/",
+            name: "TIDE Website",
             image: "pics/tide.png",
             weightIndex: 1,
             categories: [categories.all, categories.tide],
@@ -63,6 +65,7 @@ var resources = {
         },
         {
             link: "https://app.formative.com/",
+            name: "Formative",
             image: "pics/formative.png",
             weightIndex: 0,
             categories: [categories.all, categories.tide, categories.tideInClass],
@@ -70,6 +73,7 @@ var resources = {
         },
         {
             link: "https://auth.edgenuity.com/Login/Login/Student",
+            name: "Edgenuity",
             image: "pics/edgenuity.svg",
             weightIndex: 2,
             categories: [categories.all, categories.tide, categories.tideInClass],
@@ -77,6 +81,7 @@ var resources = {
         },
         {
             link: "https://ic.seq.org",
+            name: "TIDE Portal",
             image: "pics/ic.png",
             weightIndex: 3,
             categories: [categories.all, categories.tide, categories.college],
@@ -85,6 +90,7 @@ var resources = {
         },
         {
             link: "https://myportal.fhda.edu/uPortal/f/home/normal/render.uP/",
+            name: "Foothill Portal",
             image: "pics/foothill_myportal.png",
             weightIndex: 4,
             categories: [categories.all, categories.foothill],
@@ -92,6 +98,7 @@ var resources = {
         },
         {
             link: "https://docs.google.com/presentation/u/0/?tgif=d",
+            name: "Google Slides",
             image: "pics/slides.png",
             weightIndex: 5,
             categories: [categories.all, categories.resources, categories.resourcesGoogle, categories.resourcesPresentation],
@@ -99,6 +106,7 @@ var resources = {
         },
         {
             link: "https://drive.google.com/?authuser=0",
+            name: "Google Drive",
             image: "pics/drive.png",
             weightIndex: 6,
             categories: [categories.all, categories.tide, categories.resources, categories.resourcesGoogle],
@@ -107,6 +115,7 @@ var resources = {
         },
         {
             link: "https://apstudents.collegeboard.org/",
+            name: "AP Classroom",
             image: "pics/ap_classroom.png",
             weightIndex: 7,
             categories: [categories.all, categories.tide, categories.tideMathScience],
@@ -114,6 +123,7 @@ var resources = {
         },
         {
             link: "https://www.vhlcentral.com/home",
+            name: "VHL Central",
             image: "pics/vhl.png",
             weightIndex: 8,
             categories: [categories.all, categories.tide, categories.tideSpanish, categories.tideInClass],
@@ -121,6 +131,7 @@ var resources = {
         },
         {
             link: "https://quizlet.com/",
+            name: "Quizlet",
             image: "pics/quizlet.png",
             weightIndex: 9,
             categories: [categories.all, categories.tide, categories.tideSpanish],
@@ -128,6 +139,7 @@ var resources = {
         },
         {
             link: "https://quizlet.com/live",
+            name: "Quizlet Live",
             image: "pics/quizlet_live.png",
             weightIndex: 10,
             categories: [categories.all, categories.tide, categories.tideInClass],
@@ -136,6 +148,7 @@ var resources = {
         },
         {
             link: "https://kahoot.it/",
+            name: "Kahoot",
             image: "pics/kahoot.png",
             weightIndex: 11,
             categories: [categories.all, categories.tide, categories.tideInClass],
@@ -143,6 +156,7 @@ var resources = {
         },
         {
             link: "https://quizizz.com/join",
+            name: "Quizizz",
             image: "pics/quizizz.png",
             weightIndex: 35,
             categories: [categories.all, categories.tide, categories.tideInClass],
@@ -150,6 +164,7 @@ var resources = {
         },
         {
             link: "https://im.kendallhunt.com/HS/teachers/2/index.html",
+            name: "Integrated Mathematics",
             image: "pics/im.png",
             weightIndex: 12,
             categories: [categories.all, categories.tide, categories.tideMathScience],
@@ -157,6 +172,7 @@ var resources = {
         },
         {
             link: "https://app.peardeck.com/join",
+            name: "Peardeck",
             image: "pics/peardeck.png",
             weightIndex: 13,
             categories: [categories.all, categories.tide, categories.tideInClass],
@@ -165,6 +181,7 @@ var resources = {
         },
         {
             link: "https://mail.google.com/mail/u/0/#inbox",
+            name: "Gmail",
             image: "pics/gmail.png",
             weightIndex: 14,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
@@ -172,6 +189,7 @@ var resources = {
         },
         {
             link: "https://www.collegeboard.org/",
+            name: "College Board",
             image: "pics/college_board.png",
             weightIndex: 15,
             categories: [categories.all, categories.college],
@@ -179,6 +197,7 @@ var resources = {
         },
         {
             link: "https://www.canva.com/",
+            name: "Canva",
             image: "pics/canva.png",
             weightIndex: 16,
             categories: [categories.all, categories.resources, categories.resourcesPresentation],
@@ -186,6 +205,7 @@ var resources = {
         },
         {
             link: "https://foothillcollege.instructure.com/",
+            name: "Foothill Canvas",
             image: "pics/foothill_canvas.png",
             weightIndex: 17,
             categories: [categories.all, categories.foothill],
@@ -193,6 +213,7 @@ var resources = {
         },
         {
             link: "https://www.mybib.com/#/",
+            name: "MyBib",
             image: "pics/my_bib.png",
             weightIndex: 18,
             categories: [categories.all, categories.resources, categories.resourcesGrammar],
@@ -200,6 +221,7 @@ var resources = {
         },
         {
             link: "https://www.easybib.com/",
+            name: "EasyBib",
             image: "pics/easy_bib.png",
             weightIndex: 19,
             categories: [categories.all, categories.resources, categories.resourcesGrammar],
@@ -207,6 +229,7 @@ var resources = {
         },
         {
             link: "https://paper.co/",
+            name: "Paper Tutoring",
             image: "pics/paper.png",
             weightIndex: 20,
             categories: [categories.all, categories.resources, categories.resourcesSupport],
@@ -214,6 +237,7 @@ var resources = {
         },
         {
             link: "https://www.khanacademy.org/",
+            name: "Khan Academy",
             image: "pics/khan.png",
             weightIndex: 21,
             categories: [categories.all, categories.resources, categories.resourcesSupport],
@@ -222,6 +246,7 @@ var resources = {
         },
         {
             link: "https://www.desmos.com/calculator",
+            name: "Desmos",
             image: "pics/desmos.png",
             weightIndex: 22,
             categories: [categories.all, categories.resources, categories.resourcesMath],
@@ -229,6 +254,7 @@ var resources = {
         },
         {
             link: "https://www.merriam-webster.com/",
+            name: "Merrian-Webster",
             image: "pics/dictionary.png",
             weightIndex: 23,
             categories: [categories.all, categories.resources, categories.resourcesGrammar],
@@ -237,6 +263,7 @@ var resources = {
         },
         {
             link: "https://www.thesaurus.com/",
+            name: "Thesaurus",
             image: "pics/thesaurus.png",
             weightIndex: 24,
             categories: [categories.all, categories.resources, categories.resourcesGrammar],
@@ -244,6 +271,7 @@ var resources = {
         },
         {
             link: "https://www.grammarly.com/",
+            name: "Grammarly",
             image: "pics/grammarly.png",
             weightIndex: 25,
             categories: [categories.all, categories.resources, categories.resourcesGrammar],      
@@ -251,6 +279,7 @@ var resources = {
         },
         {
             link: "https://www.etymonline.com/",
+            name: "Etymonline",
             image: "pics/etymology.png",
             weightIndex: 26,
             categories: [categories.all, categories.resources, categories.resourcesGrammar],
@@ -259,6 +288,7 @@ var resources = {
         },
         {
             link: "https://www.slidescarnival.com/",
+            name: "Slides Carnival",
             image: "pics/slides_carnival.png",
             weightIndex: 27,
             categories: [categories.all, categories.resources, categories.resourcesPresentation],
@@ -266,6 +296,7 @@ var resources = {
         },
         {
             link: "https://app.scoir.com/student/dashboard",
+            name: "Scoir",
             image: "pics/scoir.png",
             weightIndex: 28,
             categories: [categories.all, categories.college],
@@ -273,6 +304,7 @@ var resources = {
         },
         {
             link: "https://apply.commonapp.org/dashboard",
+            name: "Common App",
             image: "pics/common_app.png",
             weightIndex: 29,
             categories: [categories.all, categories.college],
@@ -280,6 +312,7 @@ var resources = {
         },
         {
             link: "https://apply.universityofcalifornia.edu/my-application/login",
+            name: "UC Apply",
             image: "pics/uc.png",
             weightIndex: 30,
             categories: [categories.all, categories.college],
@@ -288,6 +321,7 @@ var resources = {
         },
         {
             link: "https://www.calstate.edu/apply",
+            name: "CSU Apply",
             image: "pics/csu.png",
             weightIndex: 31,
             categories: [categories.all, categories.college],
@@ -295,6 +329,7 @@ var resources = {
         },
         {
             link: "https://sequoiauhsd.gethelphss.com/Login/landing",
+            name: "TIDE Tech Support",
             image: "pics/tech_support.png",
             weightIndex: 32,
             categories: [categories.all, categories.resources, categories.tide],
@@ -302,6 +337,7 @@ var resources = {
         },
         {
             link: "https://foothill.edu/",
+            name: "Foothill Website",
             image: "pics/foothill.png",
             weightIndex: 33,
             categories: [categories.all, categories.foothill],
@@ -309,6 +345,7 @@ var resources = {
         },
         {
             link: "https://nearpod.com/student/",
+            name: "Nearpod",
             image: "pics/nearpod.png",
             weightIndex: 35,
             categories: [categories.all, categories.tide, categories.tideInClass],
@@ -316,6 +353,7 @@ var resources = {
         },
         {
             link: "https://app.clickup.com/",
+            name: "Clickup",
             image: "pics/clickup.png",
             weightIndex: 36,
             categories: [categories.all, categories.tide, categories.tideInClass],
@@ -323,6 +361,7 @@ var resources = {
         },
         {
             link: "https://classroom.google.com/?pli=1",
+            name: "Google Classroom",
             image: "pics/google_classroom.png",
             weightIndex: 37,
             categories: [categories.all, categories.resources, categories.resourcesGoogle, categories.tide, categories.tideInClass],
@@ -330,6 +369,7 @@ var resources = {
         },
         {
             link: "https://www.geogebra.org/calculator",
+            name: "Geogebra",
             image: "pics/geogebra.png",
             weightIndex: 38,
             categories: [categories.all, categories.resources, categories.resourcesMath],
@@ -337,6 +377,7 @@ var resources = {
         },
         {
             link: "https://docs.google.com/document/u/0/?tgif=c",
+            name: "Google Docs",
             image: "pics/docs.jpg",
             weightIndex: 39,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
@@ -344,6 +385,7 @@ var resources = {
         },
         {
             link: "https://docs.new/",
+            name: "New Google Doc",
             image: "pics/new_doc.png",
             weightIndex: 40,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
@@ -351,6 +393,7 @@ var resources = {
         },
         {
             link: "https://slides.new/",
+            name: "New Google Slide",
             image: "pics/new_slide.png",
             weightIndex: 41,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
@@ -358,6 +401,7 @@ var resources = {
         },
         {
             link: "https://docs.google.com/spreadsheets/u/0/?tgif=d",
+            name: "Google Sheets",
             image: "pics/sheets.png",
             weightIndex: 42,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
@@ -365,6 +409,7 @@ var resources = {
         },
         {
             link: "https://sheets.new/",
+            name: "New Google Sheet",
             image: "pics/new_sheet.png",
             weightIndex: 43,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
@@ -676,6 +721,7 @@ function createLinkBoxes() {
         newLinkBox = document.createElement("a");
         newLinkBox.href = linkObj.link;
         newLinkBox.target = "_blank"
+        newLinkBox.title = linkObj.name;
         newLinkBox.classList.add("link-box");
         newLinkBox.style.backgroundImage = `url("${linkObj.image}")`;
         newLinkBox.style.backgroundColor = "backgroundColor" in linkObj ? linkObj.backgroundColor : "#FFFFFF"
