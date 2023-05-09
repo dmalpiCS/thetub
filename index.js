@@ -2,14 +2,16 @@ var categories = {
     all: "All", 
     tide: "TIDE", 
     tideInClass: "In-Class Tools",
-    tidePresentation: "Presentation Material",
-    tideGrammar: "Grammar",
+    resourcesPresentation: "Presentation Material",
     tideMathScience: "Math/Science",
     tideSpanish: "Spanish",
     foothill: "Foothill", 
     hotlines: "Mental Health", 
     resources: "Academic Resources", 
     resourcesGoogle: "Google",
+    resourcesSupport: "Support",
+    resourcesGrammar: "Grammar",
+    resourcesMath: "Math",
     schedules: "Schedules", 
     college: "College Applications", 
 };
@@ -17,14 +19,15 @@ var tabs = [
     [categories.all, []],
     [categories.tide, [
         categories.tideInClass, 
-        categories.tidePresentation, 
-        categories.tideGrammar, 
         categories.tideMathScience, 
         categories.tideSpanish]],
     [categories.foothill, []],
-    // [categories.hotlines, []],
     [categories.resources, [
-        categories.resourcesGoogle]],
+        categories.resourcesSupport, 
+        categories.resourcesGoogle, 
+        categories.resourcesPresentation, 
+        categories.resourcesGrammar, 
+        categories.resourcesMath]],
     [categories.college, []],
 ];
 var selectedCategory;
@@ -91,14 +94,14 @@ var resources = {
             link: "https://docs.google.com/presentation/u/0/?tgif=d",
             image: "pics/slides.png",
             weightIndex: 5,
-            categories: [categories.all, categories.tide, categories.tidePresentation, categories.resources, categories.resourcesGoogle],
+            categories: [categories.all, categories.resources, categories.resourcesGoogle, categories.resourcesPresentation],
             tags: "google slides slideshows presentations"
         },
         {
             link: "https://drive.google.com/?authuser=0",
             image: "pics/drive.png",
             weightIndex: 6,
-            categories: [categories.all, categories.resources, categories.resourcesGoogle],
+            categories: [categories.all, categories.tide, categories.resources, categories.resourcesGoogle],
             tags: "google drive files documents folders",
             imageCoversFullBox: true
         },
@@ -113,7 +116,7 @@ var resources = {
             link: "https://www.vhlcentral.com/home",
             image: "pics/vhl.png",
             weightIndex: 8,
-            categories: [categories.all, categories.tide, categories.tideSpanish],
+            categories: [categories.all, categories.tide, categories.tideSpanish, categories.tideInClass],
             tags: "vhl central vhlcentral vista higher learning spanish espanol assignments"
         },
         {
@@ -178,7 +181,7 @@ var resources = {
             link: "https://www.canva.com/",
             image: "pics/canva.png",
             weightIndex: 16,
-            categories: [categories.all, categories.tide, categories.tidePresentation],
+            categories: [categories.all, categories.resources, categories.resourcesPresentation],
             tags: "canva presentations posters pamphlets graphic design video editing editor" 
         },
         {
@@ -192,28 +195,28 @@ var resources = {
             link: "https://www.mybib.com/#/",
             image: "pics/my_bib.png",
             weightIndex: 18,
-            categories: [categories.all, categories.tide, categories.tideGrammar],
+            categories: [categories.all, categories.resources, categories.resourcesGrammar],
             tags: "mybib bibliography citations citing sources works cited essays"
         },
         {
             link: "https://www.easybib.com/",
             image: "pics/easy_bib.png",
             weightIndex: 19,
-            categories: [categories.all, categories.tide, categories.tideGrammar],
+            categories: [categories.all, categories.resources, categories.resourcesGrammar],
             tags: "easybib bibliography chegg citations citing sources works cited essays"
         },
         {
             link: "https://paper.co/",
             image: "pics/paper.png",
             weightIndex: 20,
-            categories: [categories.all, categories.resources],
+            categories: [categories.all, categories.resources, categories.resourcesSupport],
             tags: "paper tutoring help academic support feedback essays papers educational"
         },
         {
             link: "https://www.khanacademy.org/",
             image: "pics/khan.png",
             weightIndex: 21,
-            categories: [categories.all, categories.resources],
+            categories: [categories.all, categories.resources, categories.resourcesSupport],
             tags: "khan academy khanacademy educational lessons practice academic support math science studying",
             imageCoversFullBox: true
         },
@@ -221,14 +224,14 @@ var resources = {
             link: "https://www.desmos.com/calculator",
             image: "pics/desmos.png",
             weightIndex: 22,
-            categories: [categories.all, categories.tide, categories.tideMathScience],
+            categories: [categories.all, categories.resources, categories.resourcesMath],
             tags: "desmos online graphing calculator science physics mathematics calculus graphs plotting"
         },
         {
             link: "https://www.merriam-webster.com/",
             image: "pics/dictionary.png",
             weightIndex: 23,
-            categories: [categories.all, categories.tide, categories.tideGrammar],
+            categories: [categories.all, categories.resources, categories.resourcesGrammar],
             tags: "merriam webster merriam-webster dictionary words english writing definitions grammar",
             imageCoversFullBox: true
         },
@@ -236,21 +239,21 @@ var resources = {
             link: "https://www.thesaurus.com/",
             image: "pics/thesaurus.png",
             weightIndex: 24,
-            categories: [categories.all, categories.tide, categories.tideGrammar],
+            categories: [categories.all, categories.resources, categories.resourcesGrammar],
             tags: "thesaurus words dictionary synonyms antonyms english writing grammar support"
         },
         {
             link: "https://www.grammarly.com/",
             image: "pics/grammarly.png",
             weightIndex: 25,
-            categories: [categories.all, categories.tide, categories.tideGrammar],
+            categories: [categories.all, categories.resources, categories.resourcesGrammar],      
             tags: "grammarly grammar grammer spelling corrections feedback sentences punctuations words english writing support essays"
         },
         {
             link: "https://www.etymonline.com/",
             image: "pics/etymology.png",
             weightIndex: 26,
-            categories: [categories.all, categories.tide, categories.tideGrammar],
+            categories: [categories.all, categories.resources, categories.resourcesGrammar],
             tags: "etymonline etymology online dictionary definitions words origin history dictionary english grammar writing",
             backgroundColor: "#83001d"
         },
@@ -258,7 +261,7 @@ var resources = {
             link: "https://www.slidescarnival.com/",
             image: "pics/slides_carnival.png",
             weightIndex: 27,
-            categories: [categories.all, categories.tide, categories.tidePresentation],
+            categories: [categories.all, categories.resources, categories.resourcesPresentation],
             tags: "slidescarnival carnival slides slideshow templates themes decorations presentations"
         },
         {
@@ -329,12 +332,12 @@ var resources = {
             link: "https://www.geogebra.org/calculator",
             image: "pics/geogebra.png",
             weightIndex: 38,
-            categories: [categories.all, categories.tide, categories.tideMathScience],
+            categories: [categories.all, categories.resources, categories.resourcesMath],
             tags: "geogebra geometry mathmatics algebra calculator graphs plotting"
         },
         {
             link: "https://docs.google.com/document/u/0/?tgif=c",
-            image: "pics/docs.png",
+            image: "pics/docs.jpg",
             weightIndex: 39,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
             tags: "google docs documents writing notes"
@@ -395,18 +398,18 @@ var resources = {
             text: "Mental Health Hotlines",
             id: "hotlines",
             html: `
-            <div id="hotlines-category-bar"></div>
+            <div id="hotlines-category-bar-wrapper"><div id="hotlines-category-bar"></div></div>
             <div id="hotlines-numbers-section"></div>`,
             image: "pics/hotlines.png",
             weightIndex: 3,
         },
-        {
-            type: "page",
-            text: "Local Teen Clinics",
-            html: "<marquee style='width: 100%; margin-top: 20px;'>~ Local Teen Clinics ~</marquee>",
-            image: "pics/clinic.png",
-            weightIndex: 4,
-        },
+        // {
+        //     type: "page",
+        //     text: "Local Teen Clinics",
+        //     html: "<marquee style='width: 100%; margin-top: 20px;'>~ Local Teen Clinics ~</marquee>",
+        //     image: "pics/clinic.png",
+        //     weightIndex: 4,
+        // },
         {
             type: "link",
             text: "Staff Directory",
@@ -455,20 +458,145 @@ var resources = {
                     time: "M-F, 4-10 PM",
                 }
             ]
-        }
+        },
+        {
+            label: "San Mateo Medical Center Psychiatric Emergency Services",
+            numbers: [
+                {
+                    number: "650-573-2662",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive, hotlineCategories.emergency],
+                }
+            ]
+        },
+        {
+            label: "Mills Peninsula Burlingame Psychiatric Emergency Services",
+            numbers: [
+                {
+                    number: "650-696-5915",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive, hotlineCategories.emergency],
+                }
+            ]
+        },
+        {
+            label: "Crisis Text Line",
+            numbers: [
+                {
+                    number: `741-741: "START"`,
+                    categories: [hotlineCategories.text, hotlineCategories.alwaysActive, hotlineCategories.anonymous],
+                }
+            ]
+        },
+        {
+            label: "Rape Trauma Services",
+            numbers: [
+                {
+                    number: "650-692-7273",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive, hotlineCategories.anonymous, hotlineCategories.emergency],
+                }
+            ]
+        },
+        {
+            label: "KARA - Grief Support",
+            numbers: [
+                {
+                    number: "650-321-5273",
+                    categories: [hotlineCategories.call],
+                    time: "M-Th, 9-4 PM & F, 9-1 PM",
+                }
+            ]
+        },
+        {
+            label: "Communities Overcoming Relationship Abuse",
+            numbers: [
+                {
+                    number: "800-300-1080",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive, hotlineCategories.anonymous],
+                }
+            ]
+        },
+        {
+            label: "National Suicde Prevention Line",
+            numbers: [
+                {
+                    number: "988",
+                    categories: [hotlineCategories.call, hotlineCategories.text, hotlineCategories.alwaysActive, hotlineCategories.anonymous, hotlineCategories.emergency],
+                }
+            ]
+        },
+        {
+            label: "Disaster Distress Helpline",
+            numbers: [
+                {
+                    number: "800-985-5990",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive],
+                },
+                {
+                    number: `6674: "TalkWithUs" or "Hablamos"`,
+                    categories: [hotlineCategories.text, hotlineCategories.alwaysActive],
+                }
+            ]
+        },
+        {
+            label: "SAMHSA National Helpline",
+            numbers: [
+                {
+                    number: "800-662-4357",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive],
+                }
+            ]
+        },
+        {
+            label: "Trevor Project LGBTQ+",
+            numbers: [
+                {
+                    number: "866-799-7233",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive, hotlineCategories.anonymous, hotlineCategories.emergency],
+                },
+                {
+                    number: `678-678: "START"`,
+                    categories: [hotlineCategories.text, hotlineCategories.alwaysActive, hotlineCategories.anonymous, hotlineCategories.emergency],
+                }
+            ]
+        },
+        {
+            label: "Domestic Violence",
+            numbers: [
+                {
+                    number: "866-799-7233",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive, hotlineCategories.anonymous],
+                }
+            ]
+        },
+        {
+            label: "RAINN Sexual Assault Hotline",
+            numbers: [
+                {
+                    number: "800-656-4673",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive, hotlineCategories.anonymous],
+                }
+            ]
+        },
+        {
+            label: "Grief Counseling Hotline",
+            numbers: [
+                {
+                    number: "415-499-1195",
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive],
+                }
+            ]
+        },
+        {
+            label: "TXT 4 HELP",
+            numbers: [
+                {
+                    number: `44357: "safe" & current address`,
+                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive],
+                }
+            ]
+        },
     ]
 }
-//         {
-            
-// l: ""San Mateo Medical Center P sychiatric Emergency  ervices ,
-//             numbers: [
-//                 {
-//                     number: "650-
-
-// vcategories: []                    ,2662-37
-//                 }
-//             ]     }]}
-
+        
 const linksArrow = document.getElementById("links-arrow");
 document.getElementById("links-wrapper").addEventListener("scroll", (event) => {
     linksArrow.classList.add("hidden")
