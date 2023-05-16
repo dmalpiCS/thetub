@@ -332,7 +332,7 @@ var resources = {
             name: "TIDE Tech Support",
             image: "pics/tech_support.png",
             weightIndex: 32,
-            categories: [categories.all, categories.resources, categories.tide, categories.resourcesSupport],
+            categories: [categories.all, categories.resources, categories.resourcesSupport, categories.tide],
             tags: "sequoia tide help technical support computer problems gethelp broken fix"
         },
         {
@@ -560,7 +560,7 @@ var resources = {
             ]
         },
         {
-            label: "National Suicde Prevention Line",
+            label: "National Suicide Prevention Line",
             numbers: [
                 {
                     number: "988",
@@ -604,7 +604,7 @@ var resources = {
             ]
         },
         {
-            label: "Domestic Violence",
+            label: "Domestic Violence Hotline",
             numbers: [
                 {
                     number: "866-799-7233",
@@ -635,7 +635,7 @@ var resources = {
             numbers: [
                 {
                     number: `44357: "safe" & current address`,
-                    categories: [hotlineCategories.call, hotlineCategories.alwaysActive],
+                    category: [hotlineCategories.text, hotlineCategories.alwaysActive],
                 }
             ]
         },
@@ -665,14 +665,7 @@ function parseCookie(cookies) {
     return parsed;
 }
 
-function loadWeights() {
-    let cookie = document.cookie;
-    let parsedValues = parseCookie(cookie);
-    linkWeights = "linkWeights" in parsedValues ? parsedValues.linkWeights.split(",") : [];
-    infoWeights = "infoWeights" in parsedValues ? parsedValues.infoWeights.split(",") : [];
-    for (i in linkWeights) { linkWeights[i] = Number(linkWeights[i]); }
-    for (i in infoWeights) { infoWeights[i] = Number(infoWeights[i]); }
-
+function sortResourcesByWeights() {
     [[resources.links, linkWeights], [resources.info, infoWeights]].forEach(([buttons, weights]) => {
         let highestWeightIndex = 0;
         for (let i in buttons) {
@@ -684,6 +677,17 @@ function loadWeights() {
         while (weights.length > highestWeightIndex + 1) { weights.pop(); }
         buttons.sort((a, b) => weights[b.weightIndex] - weights[a.weightIndex]);
     })
+}
+
+function loadWeights() {
+    let cookie = document.cookie;
+    let parsedValues = parseCookie(cookie);
+    linkWeights = "linkWeights" in parsedValues ? parsedValues.linkWeights.split(",") : [];
+    infoWeights = "infoWeights" in parsedValues ? parsedValues.infoWeights.split(",") : [];
+    for (i in linkWeights) { linkWeights[i] = Number(linkWeights[i]); }
+    for (i in infoWeights) { infoWeights[i] = Number(infoWeights[i]); }
+
+    sortResourcesByWeights();
 }
 
 var expireDate = new Date();
@@ -713,7 +717,9 @@ function clickedLink(weightIndex, weightType) {
         weights[i] -= adjustment;
     }
     saveWeights();
-    console.log(weights, linkWeights)
+
+    sortResourcesByWeights();
+    addLinks(prevBoxesPerRow);
 }
 
 function createLinkBoxes() {
