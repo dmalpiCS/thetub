@@ -415,6 +415,14 @@ var resources = {
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
             tags: "google sheets spreadsheets new create"
         },
+        {
+            link: "https://www.ck12.org/my/dashboard/",
+            name: "CK-12",
+            image: "pics/ck12.png",
+            weightIndex: 44,
+            categories: [categories.all, categories.tide, categories.tideInClass, categories.tideMathScience],
+            tags: "ck12 ck 12 ck-12 classes educational lessons textbooks math science"
+        },
     ],
     info: [
         {
@@ -426,17 +434,17 @@ var resources = {
         },
         {
             type: "link",
-            text: "Bus Schedule",
-            link: "https://www.tideacademy.org/Students/Bus-Schedule/index.html",  
-            image: "pics/bus.png",
-            weightIndex: 1,
-        },
-        {
-            type: "link",
             text: "Class Schedule",
             link: "https://ic.seq.org/campus/nav-wrapper/student/portal/student/schedule",
             image: "pics/class.png",  
             weightIndex: 2,
+        },
+        {
+            type: "link",
+            text: "TIDE Calendar",
+            link: "https://www.tideacademy.org/Calendar/",
+            image: "pics/calendar.png",
+            weightIndex: 6,
         },
         {
             type: "page",
@@ -448,13 +456,6 @@ var resources = {
             image: "pics/hotlines.png",
             weightIndex: 3,
         },
-        // {
-        //     type: "page",
-        //     text: "Local Teen Clinics",
-        //     html: "<marquee style='width: 100%; margin-top: 20px;'>~ Local Teen Clinics ~</marquee>",
-        //     image: "pics/clinic.png",
-        //     weightIndex: 4,
-        // },
         {
             type: "link",
             text: "Staff Directory",
@@ -464,11 +465,18 @@ var resources = {
         },
         {
             type: "link",
-            text: "TIDE Calendar",
-            link: "https://www.tideacademy.org/Calendar/",
-            image: "pics/calendar.png",
-            weightIndex: 6,
-        }
+            text: "Bus Schedule",
+            link: "https://www.tideacademy.org/Students/Bus-Schedule/index.html",  
+            image: "pics/bus.png",
+            weightIndex: 1,
+        },
+        // {
+        //     type: "page",
+        //     text: "Local Teen Clinics",
+        //     html: "<marquee style='width: 100%; margin-top: 20px;'>~ Local Teen Clinics ~</marquee>",
+        //     image: "pics/clinic.png",
+        //     weightIndex: 4,
+        // },
     ],
     mentalHealthHotlines: [
         {
