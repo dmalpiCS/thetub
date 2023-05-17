@@ -41,6 +41,18 @@ var hotlineCategories = {
     anonymous: "Anonymous",
     emergency: "Immediate Emergency"
 }
+var clinicCities = {
+    menloPark: "Menlo Park",
+    redwoodCity: "Redwood City",
+    paloAlto: "Palo Alto",
+    eastPaloAlto: "East Palo Alto",
+    mountainView: "Mountain View",
+    sanJose: "San Jose",
+    sanMateo: "San Mateo",
+    sunnyvale: "Sunnyvale",
+    dalyCity: "Daly City",
+    sanFrancisco: "San Francisco"
+}
 
 var linkWeights = [];
 var infoWeights = [];
@@ -94,7 +106,7 @@ var resources = {
             image: "pics/foothill_myportal.png",
             weightIndex: 4,
             categories: [categories.all, categories.foothill],
-            tags: "foothill fhda de anza myportal portal information"
+            tags: "foothill college fhda de anza myportal portal information"
         },
         {
             link: "https://docs.google.com/presentation/u/0/?tgif=d",
@@ -127,7 +139,7 @@ var resources = {
             image: "pics/vhl.png",
             weightIndex: 8,
             categories: [categories.all, categories.tide, categories.tideSpanish, categories.tideInClass],
-            tags: "vhl central vhlcentral vista higher learning spanish espanol assignments"
+            tags: "vhl central vhlcentral vista higher learning spanish espanol assignments lessons"
         },
         {
             link: "https://quizlet.com/",
@@ -185,7 +197,7 @@ var resources = {
             image: "pics/gmail.png",
             weightIndex: 14,
             categories: [categories.all, categories.resources, categories.resourcesGoogle],
-            tags: "gmail google mail inbox email message messaging chat"
+            tags: "gmail google mail inbox emails message messaging chat"
         },
         {
             link: "https://www.collegeboard.org/",
@@ -209,7 +221,7 @@ var resources = {
             image: "pics/foothill_canvas.png",
             weightIndex: 17,
             categories: [categories.all, categories.foothill],
-            tags: "foothill canvas fhda instructure assignments homework"
+            tags: "foothill college canvas fhda instructure assignments homework"
         },
         {
             link: "https://www.mybib.com/#/",
@@ -225,7 +237,7 @@ var resources = {
             image: "pics/easy_bib.png",
             weightIndex: 19,
             categories: [categories.all, categories.resources, categories.resourcesGrammar],
-            tags: "easybib bibliography chegg citations citing sources works cited essays"
+            tags: "easybib easy bib bibliography chegg citations citing sources works cited essays"
         },
         {
             link: "https://paper.co/",
@@ -250,7 +262,7 @@ var resources = {
             image: "pics/desmos.png",
             weightIndex: 22,
             categories: [categories.all, categories.resources, categories.resourcesMath],
-            tags: "desmos online graphing calculator science physics mathematics calculus graphs plotting"
+            tags: "desmos online graphing calculator science physics mathematics calculus algebra graphs plotting"
         },
         {
             link: "https://www.merriam-webster.com/",
@@ -300,7 +312,7 @@ var resources = {
             image: "pics/scoir.png",
             weightIndex: 28,
             categories: [categories.all, categories.college],
-            tags: "scoir college university applications colleges applying information counseling"
+            tags: "scoir college university universities applications colleges applying information counseling"
         },
         {
             link: "https://apply.commonapp.org/dashboard",
@@ -308,7 +320,7 @@ var resources = {
             image: "pics/common_app.png",
             weightIndex: 29,
             categories: [categories.all, categories.college],
-            tags: "commonapp common applications college university applying"
+            tags: "commonapp common app applications collegea university universities applying"
         },
         {
             link: "https://apply.universityofcalifornia.edu/my-application/login",
@@ -316,7 +328,7 @@ var resources = {
             image: "pics/uc.png",
             weightIndex: 30,
             categories: [categories.all, categories.college],
-            tags: "uc university of california applications applying college UCB berkeley UCD davis UCI irvine UCLA los angeles UCM merced UCR riverside UCSD san diego UCSB santa barbara UCSC santa cruz",
+            tags: "uc university of california applications applying colleges UCB berkeley UCD davis UCI irvine UCLA los angeles UCM merced UCR riverside UCSD san diego UCSB santa barbara UCSC santa cruz",
             imageCoversFullBox: true
         },
         {
@@ -325,7 +337,7 @@ var resources = {
             image: "pics/csu.png",
             weightIndex: 31,
             categories: [categories.all, categories.college],
-            tags: "california state university cal state calstate csu applications applying college"
+            tags: "california state university universities cal state calstate csu applications applying colleges"
         },
         {
             link: "https://sequoiauhsd.gethelphss.com/Login/landing",
@@ -357,7 +369,7 @@ var resources = {
             image: "pics/clickup.png",
             weightIndex: 36,
             categories: [categories.all, categories.tide, categories.tideInClass],
-            tags: "clickup click up sprint collaboration"
+            tags: "clickup click up click-up sprint collaboration"
         },
         {
             link: "https://classroom.google.com/?pli=1",
@@ -451,7 +463,7 @@ var resources = {
             text: "Mental Health Hotlines",
             id: "hotlines",
             html: `
-            <div id="hotlines-category-bar-wrapper"><div id="hotlines-category-bar"></div></div>
+            <div id="info-pullout-category-bar-wrapper"><div id="info-pullout-category-bar"></div></div>
             <div id="hotlines-numbers-section"></div>`,
             image: "pics/hotlines.png",
             weightIndex: 3,
@@ -470,13 +482,17 @@ var resources = {
             image: "pics/bus.png",
             weightIndex: 1,
         },
-        // {
-        //     type: "page",
-        //     text: "Local Teen Clinics",
-        //     html: "<marquee style='width: 100%; margin-top: 20px;'>~ Local Teen Clinics ~</marquee>",
-        //     image: "pics/clinic.png",
-        //     weightIndex: 4,
-        // },
+        {
+            type: "page",
+            text: "Local Teen Clinics",
+            html: "<div style='text-align: center; background-color: white; padding: 10px;'><span style='font-weight: bold;'>NOTE:</span></br>The Local Teen Clinics section is still a work in progress, but it will contain the following information:<img src='pics/local_teen_clinics.png' style='width: 75%; display: block; margin: auto; margin-top: 10px;'></img></div>",
+            // html: `
+            // <div id="info-pullout-category-bar-wrapper"><div id="info-pullout-category-bar"></div></div>
+            // <div id="hotlines-numbers-section"></div>`,
+            image: "pics/clinic.png",
+            id: "clinics",
+            weightIndex: 4,
+        },
     ],
     mentalHealthHotlines: [
         {
@@ -646,6 +662,152 @@ var resources = {
                     category: [hotlineCategories.text, hotlineCategories.alwaysActive],
                 }
             ]
+        },
+    ],
+    healthClinics: [
+        {
+            name: "Daly City Youth Health Center",
+            city: clinicCities.dalyCity,
+            website: "www.dalycityyouth.org",
+            number: "650-877-5700",
+            address: "350 90th St. (3rd Floor)",
+            hours: "M-F, 9-5:30 PM",
+        },
+        {
+            name: "Daly City Kaiser Teen Clinic (members only)",
+            city: clinicCities.dalyCity,
+            website: "www.kaiserpermanente.org",
+            number: "650-877-5700",
+            address: "395 Hickey Blvd.",
+            hours: "M-F, 8:30-5 PM",
+        },
+        {
+            name: "Planned Parenthood South SF",
+            city: clinicCities.sanFrancisco,
+            website: "www.ppmarmonte.org",
+            number: "877-855-7526",
+            address: "435 Grand Ave.",
+            hours: "M-F, 9-5 PM",
+        },
+        {
+            name: "Planned Parenthood South SF",
+            city: clinicCities.sanMateo,
+            website: "www.ppmarmonte.org",
+            number: "650-235-7940",
+            address: "29 Baywood Ave.",
+            hours: "M-F, 8:30-5 PM",
+        },
+        {
+            name: "Fair Oaks Health Center",
+            city: clinicCities.redwoodCity,
+            website: "www.sanmateomedicalcenter.org",
+            number: "650-578-7141",
+            address: "2710 Middlefield Rd.",
+            hours: "M-F, 8:30-5 PM",
+        },
+        {
+            name: "Kaiser Teen Clinic (members only)",
+            city: clinicCities.redwoodCity,
+            website: "www.kaiserpermanente.org",
+            number: "650-299-2025",
+            address: "910 Marshall Rd. (Birch Building)",
+            hours: "M-F, 9-5 PM",
+        },
+        {
+            name: "Planned Parenthood Redwood City",
+            city: clinicCities.redwoodCity,
+            website: "www.ppmarmonte.org",
+            number: "650-503-7810",
+            address: "2907 El Camino Real",
+            hours: "M-F, 9-5 PM",
+        },
+        {
+            name: "Redwood City Sequoia Teen Wellness Center",
+            city: clinicCities.redwoodCity,
+            website: "www.co.sanmateo.ca.us/sequoiatwc",
+            number: "650-366-2927",
+            address: "200 James Ave. (Sequoia HS)",
+            hours: "M-F, 8:30-5 PM",
+        },
+        {
+            name: "Ravenswood Family Health Center",
+            city: clinicCities.eastPaloAlto,
+            website: "www.ravenswoodfhc.org",
+            number: "650-330-7400",
+            address: "1885 Bay Rd. (Suite A)",
+            hours: "M-Th, 8-7 PM & F, 8-5 PM & Sat, 8-1 PM",
+        },
+        {
+            name: "MayView Community Health Center",
+            city: clinicCities.paloAlto,
+            website: "www.mayview.org",
+            number: "650-327-8717",
+            address: "270 Grant Ave.",
+            hours: "M, W, Th, F, 8-5 PM & T, 10-5 PM * 4th T/mo, 1-5 PM",
+        },
+        {
+            name: "MayView Community Health Center ",
+            city: clinicCities.mountainView,
+            website: "www.mayview.org",
+            number: "650-965-3323",
+            address: "900 Miramonte Ave. (2nd floor)",
+            hours: "Contact to confirm hours + app availability",
+        },
+        {
+            name: "Planned Parenthood Mountain View ",
+            city: clinicCities.mountainView,
+            website: "www.ppmarmonte.org",
+            number: "650-948-0807",
+            address: "2500 California St.",
+            hours: "M-F, 9-5 PM",
+        },
+        {
+            name: "Lucile Packard Teen Clinic (Stanford)",
+            city: clinicCities.sunnyvale,
+            website: "www.stanfordchildrens.org/en/service/teens-and-young-adults",
+            number: "650-497-7201",
+            address: "1195 W. Fremont Ave.",
+            hours: "M-Sat, 7:30-5 PM",
+        },
+        {
+            name: "Kaiser Teen Clinic (members only)",
+            city: clinicCities.sanJose,
+            website: "www.kaiserpermanente.org",
+            number: "408-362-4740",
+            address: "276 International Cir",
+            hours: "M-F, 3:30-5 PM",
+        },
+        {
+            name: "Planned Parenthood Blossom Hill",
+            city: clinicCities.sanJose,
+            website: "www.ppmarmonte.org",
+            number: "408-281-9777",
+            address: "5440 Thornwood Dr. (Suite G)",
+            hours: "M-F, 8:40-5 PM",
+        },
+        {
+            name: "Planned Parenthood Mar Monte",
+            city: clinicCities.sanJose,
+            website: "www.ppmarmonte.org",
+            number: "408-274-7100",
+            address: "2470 Alvin Ave. (Suite G)",
+            hours: "M-F, 8-6 PM & Sat, 8-5 PM & Sun, 8-4 PM",
+        },
+        {
+            name: "Planned Parenthood Eastside",
+            city: clinicCities.sanJose,
+            website: "www.ppmarmonte.org",
+            number: "408-729-7600",
+            address: "3131 Alum Rock Ave.",
+            hours: "M-F, 8:40-5 PM",
+        },
+        {
+            name: "Planned Parenthood San Jose Central",
+            city: clinicCities.sanJose,
+            website: "www.ppmarmonte.org",
+            number: "408-287-7526",
+            address: "1691 The Alameda",
+            hours: "M-Th, 8-8 PM & F, 8-5 PM & Sat-Sun, 8-4 PM",
         },
     ]
 }
@@ -914,7 +1076,7 @@ function expand(button) {
         button.classList.add("selected")
 
         if (button.infoId == "hotlines") {
-            let categoryBar = document.getElementById("hotlines-category-bar");
+            let categoryBar = document.getElementById("info-pullout-category-bar");
             let i = 0;
             for (let categoryID in hotlineCategories) {
                 if (i++ > 0) {
@@ -924,7 +1086,27 @@ function expand(button) {
                 }
                 let category = hotlineCategories[categoryID];
                 let newCategoryButton = document.createElement("div");
-                newCategoryButton.classList.add("hotlines-category-button");
+                newCategoryButton.classList.add("info-pullout-category-button");
+                newCategoryButton.onclick = function() { selectHotlineCategory(this, category); }
+                newCategoryButton.innerHTML = category;
+                categoryBar.appendChild(newCategoryButton);
+            }
+            selectHotlineCategory();
+        } else if (button.infoId == "clinics") {
+            let categoryBar = document.getElementById("info-pullout-category-bar");
+            let i = 0;
+            for (let categoryID in clinicCities) {
+                if (i++ > 0) {
+                    let spacer = document.createElement("div");
+                    spacer.classList.add("spacer");
+                    spacer.style.display = "inline-block";
+                    spacer.style.float = "none";
+                    categoryBar.appendChild(spacer);
+                }
+                let category = clinicCities[categoryID];
+                let newCategoryButton = document.createElement("div");
+                newCategoryButton.classList.add("info-pullout-category-button");
+                // newCategoryButton.style.paddingLeft = newCategoryButton.style.paddingRight = `${parseInt(newCategoryButton.style.paddingLeft) + 5}px`
                 newCategoryButton.onclick = function() { selectHotlineCategory(this, category); }
                 newCategoryButton.innerHTML = category;
                 categoryBar.appendChild(newCategoryButton);
