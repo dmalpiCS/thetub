@@ -333,7 +333,7 @@ var resources = {
             weightIndex: 21,
             categories: [categories.all, categories.resources, categories.resourcesSupport],
             tags: "khan academy khanacademy educational lessons practice academic support math science studying",
-            imageCoversFullBox: true
+            // imageCoversFullBox: true
         },
         {
             link: "https://www.merriam-webster.com/",
@@ -470,7 +470,7 @@ var resources = {
         {
             link: "https://yearbookavenue.jostens.com/",
             name: "Yearbook",
-            image: "pics/yearbook.jpeg",
+            image: "pics/yearbook.jpg",
             weightIndex: 48,
             categories: [categories.all, categories.tide],
             tags: "yearbook year book jostens tide order"
