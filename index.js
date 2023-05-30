@@ -10,7 +10,7 @@ var categories = {
     resources: "Academic Resources", // Support, tools, resources
     resourcesGoogle: "Google",
     resourcesSupport: "Support",
-    resourcesGrammar: "Grammar",
+    resourcesGrammar: "English/Grammar",
     resourcesMath: "Math",
     schedules: "Schedules", 
     college: "College Apps", 
@@ -80,12 +80,12 @@ var resources = {
             name: "CK-12",
             image: "pics/ck12.png",
             weightIndex: 44,
-            categories: [categories.all, categories.resources, categories.resourcesMath, categories.tide],
+            categories: [categories.all, categories.resources, categories.resourcesMath, categories.tide, categories.tideMathScience],
             tags: "ck-12 ck 12 learning lessons education resources"
         },
         {
             link: "https://app.clickup.com/",
-            name: "Clickup",
+            name: "ClickUp",
             image: "pics/clickup.png",
             weightIndex: 36,
             categories: [categories.all, categories.tide, categories.tideInClass],
@@ -113,7 +113,7 @@ var resources = {
             image: "pics/conjuguemos.jpg",
             weightIndex: 47,
             categories: [categories.all, categories.tide, categories.tideSpanish],
-            tags: "conjuguemos spanish conjugation"
+            tags: "conjuguemos spanish conjugations espanol language"
         },
         {
             link: "https://www.calstate.edu/apply",
@@ -128,7 +128,7 @@ var resources = {
             name: "Desmos",
             image: "pics/desmos.png",
             weightIndex: 22,
-            categories: [categories.all, categories.resources, categories.resourcesMath],
+            categories: [categories.all, categories.resources, categories.resourcesMath, categories.tide, categories.tideMathScience],
             tags: "desmos online graphing calculator science physics mathematics calculus algebra graphs plotting scientific"
         },
         {
@@ -435,20 +435,20 @@ var resources = {
             tags: "sequoia tide help technical support computer problems gethelp broken fix"
         },
         {
-            link: "https://www.tideacademy.org/",
-            name: "TIDE Website",
-            image: "pics/tide.png",
-            weightIndex: 1,
-            categories: [categories.all, categories.tide],
-            tags: "tide academy website T.I.D.E. homepage"
-        },
-        {
             link: "https://www.thesaurus.com/",
             name: "Thesaurus",
             image: "pics/thesaurus.png",
             weightIndex: 24,
             categories: [categories.all, categories.resources, categories.resourcesGrammar],
             tags: "thesaurus words dictionary synonyms antonyms english writing grammar support"
+        },
+        {
+            link: "https://www.tideacademy.org/",
+            name: "TIDE Website",
+            image: "pics/tide.png",
+            weightIndex: 1,
+            categories: [categories.all, categories.tide],
+            tags: "tide academy website T.I.D.E. homepage"
         },
         {
             link: "https://apply.universityofcalifornia.edu/my-application/login",
@@ -859,9 +859,12 @@ var resources = {
     ]
 }
         
-const linksArrow = document.getElementById("links-arrow");
 document.getElementById("links-wrapper").addEventListener("scroll", (event) => {
-    linksArrow.classList.add("hidden")
+    document.getElementById("links-arrow").classList.add("hidden");
+})
+        
+document.getElementById("info-section").addEventListener("scroll", (event) => {
+    document.getElementById("info-arrow").classList.add("hidden");
 })
 
 function parseCookie(cookies) {
