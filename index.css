@@ -560,13 +560,14 @@ html, body {
 
 .option-button {
     position: relative;
+    --height: 6vw;
     
     text-decoration: none;
     color: rgb(0, 0, 0);
     display: block;
     width: 100%;
-    height: 8vw;
-    line-height: 8vw;
+    height: var(--height);
+    line-height: var(--height);
     text-align: center;
     font-size: 3vw;
     background-color: var(--options-pullout-color);
@@ -598,21 +599,22 @@ html, body {
 
 }
 
-#about-text {
-    --about-top-padding: 1.5vw;
-    --about-side-padding: 5vw;
+#about-section {
     position: absolute;
-    border: 0px solid transparent;
-    border-left-width: var(--about-side-padding);
-    border-right-width: var(--about-side-padding);
-    border-top-width: var(--about-top-padding);
-    border-bottom-width: var(--about-top-padding);
     top: var(--header-height);
+    width: 100%;
     height: calc(100% - var(--header-height) - var(--about-button-height));
     background-color: var(--links-section-background-color);
     overflow-y: scroll;
-    z-index: 20;
     scrollbar-width: none;
+}
+
+#about-text {
+    /* position: absolute; */
+    margin-top: 1.5vw;
+    margin-left: 5vw;
+    width: 90vw;
+    margin-bottom: 1.5vw;
 }
 
 #back-button {

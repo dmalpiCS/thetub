@@ -979,7 +979,7 @@ for (let categoryID in categories) {
     newSection.classList.add("links-full-container");
 }
 
-function addLink(linkObj, categorySection, boxesPerRow=4) {
+function addLink(linkObj, categorySection, boxesPerRow=5) {
     lastRowContainer = categorySection.lastChild;
     lastRowIndex = categorySection.childNodes.length - 1;
     if (lastRowIndex == -1 || 
