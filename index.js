@@ -1029,7 +1029,7 @@ function changeCategory(newCategory) {
     selectedCategory = newCategory;
 }
 
-function fillInCategorySection(categorySection, boxesPerRow=4) {
+function fillInCategorySection(categorySection, boxesPerRow=5) {
     lastRow = categorySection.lastChild;
     lastRowIndex = categorySection.childNodes.length - 1;
     desiredColumns = lastRowIndex == -1 ? 0 : (lastRowIndex == 0 ? boxesPerRow - 1 : boxesPerRow);
