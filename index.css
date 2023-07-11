@@ -8,7 +8,8 @@
     --link-box-border-radii: 2vw;
     --links-section-ratio: 0.7;
     --category-bar-height: calc(30px + 1.2vw);
-    --category-bar-text-height: calc(2.4vw - 5px);
+    --category-bar-text-height: calc(1.5vw + 5px);
+    --mobile-info-section-height: 15vh;
 
     --header-color: #ddb940;
     --options-pullout-color: #e4c255;
@@ -121,20 +122,26 @@ html, body {
     filter: var(--button-active);
 }
 
-#links-section, #info-section {
+#links-section, #info-section.desktop {
+    --height-subtract: 0px;
     position: absolute;
-    height: calc(100% - var(--header-height));
+    height: calc(100% - var(--header-height) - var(--height-subtract));
     top: var(--header-height);
 }
 
-#links-section {
-    top: var(--header-height);
-    height: calc(100% - var(--header-height));
+#links-section.mobile {
+    --height-subtract: var(var(--mobile-info-section-height));
+}
 
+#links-section {
     overflow: hidden;
 
     width: calc(100% * var(--links-section-ratio));
     background-color: var(--links-section-background-color);
+}
+
+.full-links-section-ratio {
+    --links-section-ratio: 1;
 }
 
 #category-bar-wrapper, #info-pullout-category-bar-wrapper {
@@ -172,7 +179,7 @@ html, body {
     height: var(--category-bar-height);
     line-height: var(--category-bar-height);
     font-size: var(--category-bar-text-height);
-    --category-bar-padding: max(0.75vw, 5px);
+    --category-bar-padding: max(0.75vw, 2px);
     padding-left: var(--category-bar-padding);
     padding-right: var(--category-bar-padding);
     text-align: center;
@@ -352,23 +359,21 @@ html, body {
 
 .scroll-arrow {
     --size: 4vw;
-    position: fixed;
+    position: absolute;
     width: var(--size);
     aspect-ratio: 1/1;
     bottom: 1%;
     z-index: 0.5;
     user-select: none;
     pointer-events: none;
+    left: calc(50% - var(--size) / 2);
+    visibility: visible;
 
     transition: bottom 0.1s ease-in;
 }
 
-#links-arrow {
-    left: calc(50% * var(--links-section-ratio) - var(--size) / 2);
-}
-
-#info-arrow {
-    left: calc(100% - 50% * (1 - var(--links-section-ratio)) - var(--size) / 2);
+.mobile #info-arrow {
+    visibility: hidden;
 }
 
 .scroll-arrow.hidden {
@@ -376,30 +381,43 @@ html, body {
 }
 
 #info-section {
-    width: calc(100% * (1 - var(--links-section-ratio)));
-    overflow-y: scroll;
-    scrollbar-width: none;
-    right: 0px;
     background-color: var(--info-section-background-color);
+    position: absolute;
     z-index: 5;
+    scrollbar-width: none;
 }
 
-#info-full-container {
+#info-section.desktop {
+    width: calc(100% * (1 - var(--links-section-ratio)));
+    overflow-y: scroll;
+    right: 0px;
+}
+
+#info-section.mobile {
+    width: 100%;
+    bottom: 0;
+    height: var(--mobile-info-section-height);
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.desktop #info-full-container {
     margin: var(--info-box-gaps);
     width: calc(100% - var(--info-box-gaps) * 2);
     height: fit-content;
 }
 
+.mobile #info-full-container {
+    position: absolute;
+    margin: var(--info-box-gaps);
+    width: max-content;
+    height: calc(100% - var(--info-box-gaps) * 2);
+}
+
 .info-box {
-    --height: calc(7vh + 3vw);
     display: flex;
     background-color: var(--info-box-color);
-    width: 100%;
-    height: var(--height);
-    white-space: nowrap;
-    /* aspect-ratio: 4/1; */
     border-radius: var(--link-box-border-radii);
-    margin-bottom: var(--info-box-gaps);
     color: black;
     text-decoration: none;
     justify-content: center;
@@ -408,29 +426,70 @@ html, body {
     transition: 0.05s ease-in-out;
 }
 
-.info-box.info-link-button:hover:not(:active), .info-box.info-pullout-button:hover:not(:active) {
+.desktop * .info-box {
+    --height: calc(7vh + 3vw);
+    width: 100%;
+    height: var(--height);
+    /* aspect-ratio: 4/1; */
+    white-space: nowrap;
+    margin-bottom: var(--info-box-gaps);
+}
+
+.mobile * .info-box {
+    --height: calc(var(--mobile-info-section-height) - 2 * var(--info-box-gaps)); /* for some reason in this specific case, 100% doesn't work */
+    --width: var(--height);
+    height: var(--height); 
+    width: var(--width);
+    float: left;
+    margin-right: var(--info-box-gaps);
+    flex-direction: column;
+}
+
+.desktop * .info-box:hover:not(:active) {
     width: 105%;
     height: calc(var(--height) * 1.05);
     margin-left: -2.5%;
     margin-right: -2.5%;
-    margin-top: calc(-1 * var(--height) * 0.05 / 2);
-    margin-bottom: calc(var(--info-box-gaps) - var(--height) * 0.05 / 2);
+    margin-top: calc(-0.025 * var(--height));
+    margin-bottom: calc(var(--info-box-gaps) - 0.025 * var(--height));
     cursor: pointer;
     /* gap: 8%; */
 }
 
-.info-box.selected {
+.mobile * .info-box:hover:not(:active) {
+    height: calc(var(--height) * 1.05);
+    width: calc(var(--width) * 1.05);
+    margin-left: calc(-0.025 * var(--width));
+    margin-right: calc(var(--info-box-gaps) - 0.025 * var(--width));
+    margin-top: calc(-0.025 * var(--height));
+    margin-top: calc(-0.025 * var(--height));
+    cursor: pointer;
+    /* gap: 8%; */
+}
+
+.desktop * .info-box.info-pullout-button.selected {
     margin-left: calc(0px - var(--info-box-gaps));
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0;
     background-color: var(--info-pullout-color);
 }
 
-.info-box.info-pullout-button.selected:hover:not(:active) {
+.mobile * .info-box.info-pullout-button.selected {
+    margin-top: calc(0px - var(--info-box-gaps));
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0;
+    background-color: var(--info-pullout-color);
+}
+
+.desktop * .info-box.info-pullout-button.selected:hover:not(:active) {
     margin-left: calc(0px - var(--info-box-gaps));
 }
 
-.info-box.info-link-button:active, .info-box.info-pullout-button:active {
+.mobile * .info-box.info-pullout-button.selected:hover:not(:active) {
+    margin-top: calc(0px - var(--info-box-gaps));
+}
+
+.desktop * .info-box:active {
     cursor: pointer;
     filter: var(--button-active);
     width: 100%;
@@ -439,14 +498,30 @@ html, body {
     border-radius: var(--link-box-border-radii);
 }
 
-.info-image {
+.mobile * .info-box:active {
+    cursor: pointer;
+    filter: var(--button-active);
+    width: var(--width);
+    height: var(--height);
+    margin: 0px;
+    margin-right: var(--info-box-gaps);
+    border-radius: var(--link-box-border-radii);
+}
+
+.desktop * * .info-image {
     user-select: none;
     object-fit: contain;
     width: 12%;
     float: left;
 }
 
-.info-text {
+.mobile * * .info-image {
+    user-select: none;
+    object-fit: contain;
+    height: 35%;
+}
+
+.desktop * * .info-text {
     float: left;
     display: flex;
     height: 100%;
@@ -458,18 +533,31 @@ html, body {
     transition: 0.05s ease-in-out;
 }
 
-.info-box:hover:not(:active) .info-text {
+.mobile * * .info-text {
+    /* TODO: Make the info image and text stay at constant y positions independent of how many lines the text has.
+        Make the auto-scaling info text (for desktop layout) depend on the info box width, not the screen width. Then apply it to the mobile layout (but scaled down a bit to fit).
+        Tune the sizing of the mobile layout info section (maybe not dependent on vh? idk), and maybe think if you want to make mobile layout info boxes not 1/1 aspect ratio.
+        Make mobile layout info boxes scale more than by 105% */
+    --font-size: calc(0.12 * var(--width));
+    align-self: center;
+    width: 70%;
+    text-align: center;
+    font-size: var(--font-size);
+    transition: 0.05s ease-in-out;
+}
+
+.desktop * .info-box:hover:not(:active) .info-text {
     font-size: var(--expanded-font-size);
+}
+
+.mobile * .info-box:hover:not(:active) .info-text {
+    font-size: calc(1.05 * var(--font-size));
 }
 
 #info-pullout {
     position: absolute;
     background-color: var(--info-pullout-color);
-    height: calc(100% - var(--header-height));
     width: calc(100% * var(--links-section-ratio));
-    top: var(--header-height);
-    left: calc(100% * var(--links-section-ratio));
-    transition: left 0.2s ease-in-out, visibility 0.2s step-end;
     visibility: hidden;
     z-index: 4;
 
@@ -478,10 +566,30 @@ html, body {
     overflow-y: auto;
 }
 
-#info-pullout.pulled-out {
+#info-pullout.desktop {
+    height: calc(100% - var(--header-height));
+    transition: left 0.2s ease-in-out, visibility 0.2s step-end;
+    top: var(--header-height);
+    left: calc(100% * var(--links-section-ratio));
+}
+
+#info-pullout.mobile {
+    height: calc(100% - var(--header-height) - var(--mobile-info-section-height));
+    transition: top 0.2s ease-in-out, visibility 0.2s step-end;
+    top: 100%;
+    left: 0px;
+}
+
+#info-pullout.desktop.pulled-out {
     transition: left 0.2s ease-in-out, visiblity 0.2s;
     visibility: visible;
     left: 0px;
+}
+
+#info-pullout.mobile.pulled-out {
+    transition: top 0.2s ease-in-out, visiblity 0.2s;
+    visibility: visible;
+    top: var(--header-height);;
 }
 
 .hotline, .clinic {

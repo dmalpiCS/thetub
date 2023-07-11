@@ -862,7 +862,7 @@ var resources = {
 document.getElementById("links-wrapper").addEventListener("scroll", (event) => {
     document.getElementById("links-arrow").classList.add("hidden");
 })
-        
+
 document.getElementById("info-section").addEventListener("scroll", (event) => {
     document.getElementById("info-arrow").classList.add("hidden");
 })
@@ -943,7 +943,7 @@ function clickedLink(weightIndex, weightType) {
     saveWeights();
 
     sortResourcesByWeights();
-    addLinks(prevBoxesPerRow);
+    addLinks(boxesPerRow);
 }
 
 function createLinkBoxes() {
@@ -979,7 +979,7 @@ for (let categoryID in categories) {
     newSection.classList.add("links-full-container");
 }
 
-function addLink(linkObj, categorySection, boxesPerRow=5) {
+function addLink(linkObj, categorySection) {
     lastRowContainer = categorySection.lastChild;
     lastRowIndex = categorySection.childNodes.length - 1;
     if (lastRowIndex == -1 || 
@@ -1029,7 +1029,7 @@ function changeCategory(newCategory) {
     selectedCategory = newCategory;
 }
 
-function fillInCategorySection(categorySection, boxesPerRow=5) {
+function fillInCategorySection(categorySection) {
     lastRow = categorySection.lastChild;
     lastRowIndex = categorySection.childNodes.length - 1;
     desiredColumns = lastRowIndex == -1 ? 0 : (lastRowIndex == 0 ? boxesPerRow - 1 : boxesPerRow);
@@ -1043,7 +1043,7 @@ function fillInCategorySection(categorySection, boxesPerRow=5) {
     }
 }
 
-function addLinks(boxesPerRow) {
+function addLinks() {
     clearAllCategorySections();
     resources.links.forEach((linkObj) => {
         linkObj.categories.forEach((category) => {
@@ -1172,7 +1172,7 @@ function expand(button) {
 }
 
 function addInfo() {
-    infoContainer = document.getElementById("info-full-container");
+    let infoContainer = document.getElementById("info-full-container")
     resources.info.forEach((infoObj) => {
         let infoBox = document.createElement("a");
         infoBox.classList.add("info-box");
@@ -1382,29 +1382,66 @@ function toggleOptions() {
     }
 }
 
-var prevBoxesPerRow = false;
+var mobileLayoutActive = undefined;
+var boxesPerRow = undefined;
+var elementsToChangeRatio = Array.from(document.querySelectorAll(".category-button, .subcategory-button, #links-section, #info-pullout"));
 function onResize(event) {
     let windowRatio = window.innerWidth / window.innerHeight;
-    let boxesPerRow = 5;
-    if (windowRatio < 0.9) { boxesPerRow = 2 }
-    if (windowRatio < 1.1) { boxesPerRow = 3 }
-    else if (windowRatio < 1.4) { boxesPerRow = 4 }
-    if (prevBoxesPerRow == false || prevBoxesPerRow != boxesPerRow) {
-        prevBoxesPerRow = boxesPerRow;
-        addLinks(boxesPerRow);
+    let newBoxesPerRow = 5;
+    if (windowRatio < 0.9) { newBoxesPerRow = 2 }
+    if (windowRatio < 1.1) { newBoxesPerRow = 3 }
+    else if (windowRatio < 1.4) { newBoxesPerRow = 4 }
+    if (boxesPerRow == undefined || boxesPerRow != newBoxesPerRow) {
+        boxesPerRow = newBoxesPerRow;
+        addLinks();
     }
     // (0, 0.8]: 0 + 2
     // (0.9, 1.6]: 3
     // (1.6, 2.4]: 4
+
+    if (windowRatio < 0.9 && (mobileLayoutActive == false || mobileLayoutActive == undefined)) {
+        document.getElementById("info-section").classList.add("mobile");
+        document.getElementById("info-pullout").classList.add("mobile");
+        document.getElementById("info-section").classList.remove("desktop");
+        document.getElementById("info-pullout").classList.remove("desktop");
+        document.getElementById("title").style.visibility = "hidden";
+    
+        Array.from(elementsToChangeRatio).forEach((element) => {
+            element.classList.add("full-links-section-ratio");
+        })
+        document.getElementById("links-section").classList.add("mobile");
+
+    } else if (windowRatio >= 0.9 && (mobileLayoutActive == true || mobileLayoutActive == undefined)) {
+        document.getElementById("info-section").classList.add("desktop");
+        document.getElementById("info-pullout").classList.add("desktop");
+        document.getElementById("info-section").classList.remove("mobile");
+        document.getElementById("info-pullout").classList.remove("mobile");
+        document.getElementById("title").style.visibility = "visible";
+
+        Array.from(elementsToChangeRatio).forEach((element) => {
+            element.classList.remove("full-links-section-ratio");
+        })
+        document.getElementById("links-section").classList.remove("mobile");
+    }
 }
 
 addEventListener("resize", onResize);
 
+function transformScroll(event) {
+    if (!event.deltaY) {
+        return;
+    }
+
+    event.currentTarget.scrollLeft -= event.deltaY + event.deltaX;
+}
+
+document.getElementById("info-section").addEventListener('wheel', transformScroll);
+
 function setup() {
     loadWeights();
     createLinkBoxes();
-    onResize();
     addInfo();
+    onResize();
     addCategoryButtons();
     changeCategory(categories.all);
 
